@@ -1,6 +1,6 @@
 .page_body{
   width:95%;
-  height:200px;
+  min-height:100px;
   background: #fff;
   margin-bottom: 10px;
 }
