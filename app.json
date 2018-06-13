@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/exception/page_not_found",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#d4237a",
+    "navigationBarTitleText": "临邑人在北京",
+    "navigationBarTextStyle":"#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/app/home.png",
+      "selectedIconPath": "images/app/home.png"
+      },
+      {
+      "pagePath": "pages/logs/logs",
+      "text": "发布",
+      "iconPath": "images/app/edit.png",
+      "selectedIconPath": "images/app/edit.png"
+      }
+    ]
+  }
+}
