@@ -1,0 +1,18 @@
+2018-06-14 16:20:24,788 - wechat_app - ERROR - An exception happened, details: 'Query' object has no attribute 'skip'
+2018-06-14 16:20:35,821 - wechat_app - ERROR - An exception happened, details: 'Query' object has no attribute 'skip'
+2018-06-14 16:21:09,316 - wechat_app - ERROR - An exception happened, details: 'Query' object has no attribute 'skip'
+2018-06-14 16:26:18,614 - wechat_app - ERROR - An exception happened, details: an integer is required
+2018-06-14 16:28:35,770 - wechat_app - ERROR - An exception happened, details: Query.order_by() being called on a Query which already has LIMIT or OFFSET applied. To modify the row-limited results of a  Query, call from_self() first.  Otherwise, call order_by() before limit() or offset() are applied.
+2018-06-14 16:29:18,992 - wechat_app - ERROR - An exception happened, details: an integer is required
+2018-06-14 16:29:35,678 - wechat_app - ERROR - An exception happened, details: an integer is required
+2018-06-14 16:30:19,887 - wechat_app - ERROR - An exception happened, details: an integer is required
+2018-06-14 16:33:12,755 - wechat_app - ERROR - An exception happened, details: an integer is required
+2018-06-14 16:51:14,515 - wechat_app - ERROR - An exception happened, details: an integer is required
+2018-06-14 16:51:35,483 - wechat_app - ERROR - An exception happened, details: an integer is required
+2018-06-14 16:56:54,135 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.ProgrammingError) (1146, "Table 'wechat_app.info' doesn't exist")
+2018-06-14 17:01:25,767 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.ProgrammingError) (1146, "Table 'wechat_app.info' doesn't exist")
+2018-06-14 17:25:26,029 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (1054, "Unknown column 'my_user.gener' in 'field list'")
+2018-06-14 17:26:28,854 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'id'
+2018-06-14 17:28:14,575 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'id'
+2018-06-14 17:53:04,709 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'id'
+2018-06-14 17:54:56,325 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'id'
