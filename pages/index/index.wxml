@@ -1,9 +1,5 @@
-<!--index_bak.wxml-->
 <view class="container">
   <view class="page_body">
-    <text>success</text>
-  </view>
-  <view class="page_body">
-    <text>failure</text>
+    {{entity}}
   </view>
 </view>
