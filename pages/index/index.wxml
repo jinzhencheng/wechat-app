@@ -1,5 +1,9 @@
 <view class="container">
-  <view class="page_body">
-    {{entity}}
+  <view class="page-body">
+    <view class="card-head">
+      <image class="head-img" src="http://suo.im/4Y51LS"></image>
+      <image class="gender-img" src="/images/page/female.png"></image>
+      <text>车找人</text>
+    </view>
   </view>
 </view>

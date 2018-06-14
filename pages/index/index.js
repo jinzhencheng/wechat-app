@@ -5,6 +5,24 @@ Page({
     entity: null
   },
 
+  init: () => {
+    var that = this
+    wx.request({
+      url: `${app.globalData.server}/info/list`,
+      method: 'GET',
+      success: res => {
+        that.setData({
+          "infoList": res.data,
+          "entity": res.data[0]
+        })
+      },
+      fail: res => {
+        console.log(res)
+        console.log('initliza data error')
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -16,16 +34,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.request({
-      url: `${app.globalData.server}/info/list`,
-      method: 'GET',
-      success: res => {
-        this.setData({
-          infoList: res.data,
-          entity: res.data[0]
-        })
-      }
-    })
+    this.init()
     console.log(this.data.infoList)
   },
 
