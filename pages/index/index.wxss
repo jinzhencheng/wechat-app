@@ -2,20 +2,35 @@
   width:95%;
   min-height:100px;
   background: #fff;
-  margin-bottom: 10px;
+  margin: 10px auto;
 }
-.card-head{
-  width: 100%;
-  height: 80px;
-  margin:10px;
+.scroll-container{
+  height:600px;
 }
-.head-img{
-  width: 50px;
-  height:50px;
-  border-radius: 50%;
-}
-.gender-img{
-  width: 24px;
-  height:24px;
-  margin-top:-10px;
-}
+
+/*card head style*/
+.card-head{height: 40px; padding:5px 10px;}
+.head-img{max-width: 40px; max-height:40px;border-radius: 50%;border:solid 1px gainsboro;float:left;}
+.gender-img{width:16px;height:16px;margin-bottom: 10px;float:left;margin:10px 5px;}
+.type-text{float:right;margin-top:15px;font-size:14px;color:gray;}
+.type-img{width:16px;height:16px;float:right;margin-top:15px;vertical-align:middle;margin-left:5px;}
+.head-position{float:left;}
+
+/* card body style */
+.card-body{padding:5px 10px 10px;min-height:40px;}
+.body-text{font-size:14px;text-align:left;}
+.overdue-img{position:relivate;margin-bottom:-80px;margin-left:120px;z-index:999; width:90px;height:64px;}
+.position-img{width:16px;height:16px;}
+.position-text{font-size:12px;color:gray;}
+
+/* card foot style */
+.card-foot{height:20px;border-top: solid 1px ghostwhite;padding:10px 10px;text-align:center;}
+.view-text{font-size:12px;color:gainsboro;}
+.view-img{height:16px;width:16px;vertical-align:middle;}
+
+.start_time_label{display:inline-block;width:12px;height:12px;border-radius:50%;}
+.start_time_label_overdue{background:#db639b;}
+.start_time_label_normal{background:#7cba59;}
+.start_time_text{color:gray;font-size:14px;margin-left:5px;}
+
+/* */

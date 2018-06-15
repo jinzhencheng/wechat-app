@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top:10px;
   box-sizing: border-box;
   background: #F5F5F5;
 } 

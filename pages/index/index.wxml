@@ -1,9 +1,33 @@
 <view class="container">
-  <view class="page-body">
-    <view class="card-head">
-      <image class="head-img" src="http://suo.im/4Y51LS"></image>
-      <image class="gender-img" src="/images/page/female.png"></image>
-      <text>车找人</text>
+  <scroll-view scroll-y class="scroll-container" lower-threshold="10" bindscrolltolower="bindView">
+    <view wx:for="{{infoList}}" wx:key="{{item.id}}">
+      <view class="page-body">
+        <image wx:if="{{item.overdue}}" class="overdue-img" src="/images/page/overdue.png"></image>
+        <view class="card-head">
+          <image class="head-img" src="{{item.img_url}}"></image>
+          <image class="gender-img" src="{{item.gender == '男' ? '/images/page/male.png': '/images/page/female.png'}}"></image>
+          <view class="head-position">
+            <image class="position-img" src="/images/page/start.png"></image>
+            <text class="position-text">{{item.start_position}} \n </text>
+            <image class="position-img" src="/images/page/end.png"></image>
+            <text class="position-text">{{item.end_position}} </text>
+          </view>
+          <image class="type-img" src="{{'车找人' == item.type ? '/images/page/car.png': '/images/page/person.png'}}"></image>
+          <text class="type-text">{{item.type}}</text>
+        </view>
+        <view class="card-body">
+          <text class="body-text">{{item.content}}</text>
+        </view>
+        <view class="card-foot">
+          <image class="view-img" style="float:left;" src="/images/page/browse.png"></image>
+          <text class="view-text" style="float:left;">{{item.browse}}</text>
+          <label wx:if="{{item.overdue}}" class="start_time_label start_time_label_overdue" for="{{item.start_time}}"></label>
+          <label wx:else class="start_time_label start_time_label_normal" for="{{item.start_time}}"></label>
+          <text class="view-text start_time_text">{{item.start_time}}</text>
+          <text class="view-text" style="float:right;">{{item.add_time}}</text>
+          <image class="view-img" style="float:right;" src="/images/page/time.png"></image>
+        </view>
+      </view>
     </view>
-  </view>
+  </scroll-view>
 </view>

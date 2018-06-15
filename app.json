@@ -11,18 +11,26 @@
     "navigationBarTextStyle":"#fff"
   },
   "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#d4237a",
     "list": [
       {
       "pagePath": "pages/index/index",
       "text": "首页",
-      "iconPath": "images/app/home.png",
-      "selectedIconPath": "images/app/home.png"
+      "iconPath": "images/app/home_no.png",
+      "selectedIconPath": "images/app/home_yes.png"
       },
       {
       "pagePath": "pages/logs/logs",
       "text": "发布",
-      "iconPath": "images/app/edit.png",
-      "selectedIconPath": "images/app/edit.png"
+      "iconPath": "images/app/publish_no.png",
+      "selectedIconPath": "images/app/publish_yes.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的",
+        "iconPath": "images/app/user_no.png",
+        "selectedIconPath": "images/app/user_yes.png"
       }
     ]
   }

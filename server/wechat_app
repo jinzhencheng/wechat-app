@@ -16,3 +16,17 @@
 2018-06-14 17:28:14,575 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'id'
 2018-06-14 17:53:04,709 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'id'
 2018-06-14 17:54:56,325 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'id'
+2018-06-15 10:39:18,312 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'the_date'
+2018-06-15 10:39:58,145 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'the_date'
+2018-06-15 10:40:48,292 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'the_date'
+2018-06-15 10:41:30,414 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'the_date'
+2018-06-15 10:41:57,342 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'the_date'
+2018-06-15 10:54:16,598 - wechat_app - ERROR - An exception happened, details: argument must be 9-item sequence, not datetime.datetime
+2018-06-15 10:57:54,845 - wechat_app - ERROR - An exception happened, details: argument must be 9-item sequence, not datetime.datetime
+2018-06-15 11:12:32,855 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'Info'
+2018-06-15 11:21:04,398 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'Info'
+2018-06-15 11:21:38,063 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'Info'
+2018-06-15 11:22:25,296 - wechat_app - ERROR - An exception happened, details: 'Info' object has no attribute 'Info'
+2018-06-15 14:43:44,259 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'start_time'
+2018-06-15 14:45:20,015 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'start_time'
+2018-06-15 14:47:01,618 - wechat_app - ERROR - An exception happened, details: can't compare datetime.timedelta to int

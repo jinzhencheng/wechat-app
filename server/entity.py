@@ -18,7 +18,9 @@ class MyUser(Base):
     open_id = Column("open_id", String)
     gender = Column("gender", String)
     img_url = Column("img_url", String)
+    phone = Column("phone", String)
     info_list = relationship("Info")
+
 
 class Info(Base):
 
@@ -26,12 +28,14 @@ class Info(Base):
 
     id = Column("id", Integer, primary_key=True)
     content = Column("content", String)
-    the_date = Column("the_date", DateTime)
-    start = Column("start", String)
-    end = Column("end", String)
+    start_time = Column("start_time", DateTime)
+    start_position = Column("start_position", String)
+    end_position = Column("end_position", String)
     type = Column("type", String)
     remark = Column("remark", String)
     is_available = Column("is_available", Boolean)
+    add_time = Column("add_time", DateTime)
+    browse = Column("browse", Integer)
     my_user_id = Column("my_user_id", Integer, ForeignKey('my_user.id'))
 
 
