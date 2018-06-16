@@ -30,3 +30,70 @@
 2018-06-15 14:43:44,259 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'start_time'
 2018-06-15 14:45:20,015 - wechat_app - ERROR - An exception happened, details: 'result' object has no attribute 'start_time'
 2018-06-15 14:47:01,618 - wechat_app - ERROR - An exception happened, details: can't compare datetime.timedelta to int
+2018-06-16 16:19:47,607 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '124.251.25.44' (10060)")
+2018-06-16 16:25:28,559 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'mingrui'@'114.253.207.119' (using password: YES)")
+2018-06-16 17:36:51,894 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (2006, 'MySQL server has gone away')
+2018-06-16 17:40:46,265 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:40:55,589 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:41:04,665 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:41:11,765 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:53:42,006 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:54:31,256 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:54:36,178 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:54:49,483 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 17:56:55,842 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:01:37,187 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:06:04,138 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:06:57,019 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:08:56,904 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:13:47,494 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:14:27,611 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:16:39,134 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:16:40,907 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:16:51,499 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:17:29,038 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:17:35,161 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:20:26,596 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:21:28,693 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:21:45,746 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:22:00,283 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:22:41,154 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:23:37,910 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:26:54,674 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:26:59,094 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:27:20,782 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:27:39,799 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:27:51,176 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:28:07,828 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:28:28,342 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:29:06,085 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:29:16,194 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:29:57,644 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:30:26,825 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:30:43,910 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:30:51,599 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:33:39,733 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:42:35,798 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:42:48,249 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:42:53,670 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:43:15,762 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:43:56,601 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:45:54,053 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:46:25,911 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:53:34,604 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:53:53,053 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:54:01,354 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:55:25,813 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:55:36,612 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:56:12,713 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:57:03,509 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 18:57:33,217 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 19:00:40,145 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 19:16:08,082 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 19:17:56,210 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 19:18:50,934 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 19:19:11,951 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-16 21:41:41,990 - wechat_app - ERROR - An exception happened, details: commit() takes exactly 1 argument (2 given)
+2018-06-16 21:41:41,990 - wechat_app - ERROR - An exception happened, details: commit() takes exactly 1 argument (2 given)
+2018-06-16 22:07:02,650 - wechat_app - ERROR - An exception happened when 'is_exists' function executed, details: 'NoneType' object has no attribute 'open_id'
+2018-06-16 22:07:02,650 - wechat_app - ERROR - An exception happened when 'is_exists' function executed, details: 'NoneType' object has no attribute 'open_id'

@@ -5,7 +5,7 @@
   margin: 10px auto;
 }
 .scroll-container{
-  height:600px;
+  height:1000px;
 }
 
 /*card head style*/
@@ -33,4 +33,4 @@
 .start_time_label_normal{background:#7cba59;}
 .start_time_text{color:gray;font-size:14px;margin-left:5px;}
 
-/* */
+

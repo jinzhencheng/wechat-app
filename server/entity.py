@@ -17,9 +17,14 @@ class MyUser(Base):
     nickname = Column("nickname", String)
     open_id = Column("open_id", String)
     gender = Column("gender", String)
-    img_url = Column("img_url", String)
+    avatar_url = Column("avatar_url", String)
     phone = Column("phone", String)
+    city = Column(String)
+    province = Column(String)
+    country = Column(String)
+    union_id = Column(String)
     info_list = relationship("Info")
+
 
 
 class Info(Base):

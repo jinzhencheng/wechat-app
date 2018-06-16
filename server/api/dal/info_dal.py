@@ -28,7 +28,7 @@ def list(page_index=1, page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
              "end_position": item.Info.end_position, "remark": item.Info.remark,
              "nickname": item.MyUser.nickname, "gender": item.MyUser.gender,
              "add_time": builder.build_date_tip(item.Info.add_time), "browse": item.Info.browse,
-             "img_url": item.MyUser.img_url, "phone": item.MyUser.phone, "my_user_id": item.MyUser.id, "overdue": (datetime.now() > item.Info.start_time)}
+             "avatar_url": item.MyUser.avatar_url, "phone": item.MyUser.phone, "my_user_id": item.MyUser.id, "overdue": (datetime.now() > item.Info.start_time)}
             for item in result]
         return info_list
     except Exception, e:

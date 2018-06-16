@@ -1,0 +1,12 @@
+<view class="edit-tip-container">
+  <text class="edit-tip-text">提示：违法广告信息将会被永久禁言</text>
+</view>
+
+<view class="form-view">
+  <radio-group>
+      <radio color="#d4237a" class="radio"></radio>
+      <label class="radio-label">车找人</label>
+      <radio color="#d4237a" class="radio"></radio>
+      <label class="radio-label">人找车</label>
+  </radio-group>
+</view>

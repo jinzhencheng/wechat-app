@@ -4,7 +4,7 @@
       <view class="page-body">
         <image wx:if="{{item.overdue}}" class="overdue-img" src="/images/page/overdue.png"></image>
         <view class="card-head">
-          <image class="head-img" src="{{item.img_url}}"></image>
+          <image class="head-img" src="{{item.avatar_url}}"></image>
           <image class="gender-img" src="{{item.gender == '男' ? '/images/page/male.png': '/images/page/female.png'}}"></image>
           <view class="head-position">
             <image class="position-img" src="/images/page/start.png"></image>

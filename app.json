@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/exception/page_not_found",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/release/edit",
+    "pages/authorization/authorize"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -21,7 +23,7 @@
       "selectedIconPath": "images/app/home_yes.png"
       },
       {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/release/edit",
       "text": "发布",
       "iconPath": "images/app/publish_no.png",
       "selectedIconPath": "images/app/publish_yes.png"

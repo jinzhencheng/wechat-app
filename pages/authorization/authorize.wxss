@@ -1,0 +1,6 @@
+
+.authorization-container{background:white;}
+.authorization-img{margin:20px auto 10px;width:100px;height:100px;}
+.authorization-text{text-align:center;font-size:16px;}
+.authorization-btn{margin-top:100px;background-color:#d4237a !important;width:95%}
+.authorization-btn-hover{background-color:#d6204b !important;}
