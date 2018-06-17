@@ -9,18 +9,18 @@
 }
 
 /*card head style*/
-.card-head{height: 40px; padding:5px 10px;}
+.card-head{height:40px; padding:5px 10px;}
 .head-img{max-width: 40px; max-height:40px;border-radius: 50%;border:solid 1px gainsboro;float:left;}
 .gender-img{width:16px;height:16px;margin-bottom: 10px;float:left;margin:10px 5px;}
-.type-text{float:right;margin-top:15px;font-size:14px;color:gray;}
-.type-img{width:16px;height:16px;float:right;margin-top:15px;vertical-align:middle;margin-left:5px;}
+.type-text{float:right;margin-top:10px;font-size:14px;color:gray;}
+.type-img{width:16px;height:16px;float:right;margin-top:10px;vertical-align:middle;margin-left:5px;}
 .head-position{float:left;}
 
 /* card body style */
-.card-body{padding:5px 10px 10px;min-height:40px;}
+.card-body{padding:5px 10px 10px;min-height:40px;text-align:left;}
 .body-text{font-size:14px;text-align:left;}
-.overdue-img{position:relivate;margin-bottom:-80px;margin-left:120px;z-index:999; width:90px;height:64px;}
-.position-img{width:16px;height:16px;}
+.overdue-img{float:clear;position:relivate;margin-bottom:-100px;margin-left:120px;z-index:999; width:90px;height:64px;}
+.position-img{width:16px;height:16px;margin-right:5px;vertical-align:middle;}
 .position-text{font-size:12px;color:gray;}
 
 /* card foot style */

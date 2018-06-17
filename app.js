@@ -14,7 +14,6 @@ App({
       })
   },
   globalData: {
-    userInfo: null,
     server: 'http://localhost:5000'
   }
 })

@@ -3,6 +3,22 @@
 .edit-tip-text{color:#FF7F24;font-size:12px;padding:5px 10px;text-align:left;}
 
 /* form view*/
-.form-view{width:95%;padding:5px 10px;margin-top:20px;}
+.form-view{width:100%;}
+
 .radio-label{margin-left:5px;}
-.radio{margin-left:10px;vertical-align:middle;}
+.radio{margin-left:10px}
+.radio-group{text-align:center;margin:20px auto;}
+
+.form-input-view{width:100%;background:white;border-bottom:solid 1px ghostwhite;height:50px;line-height:50px;}
+.form-input-view image{width:20px;height:20px;vertical-align:middle;margin:10px;}
+.form-input-view input{height:50px;line-height:50px;float:right;text-align:right;margin-right:10px;}
+.form-input-view picker{float:right;margin-right:10px;}
+
+.other-view{margin-top:20px;width:100%;}
+.other-view textarea{padding:10px 10px;background:white;height:80px;width:100%;}
+.other-checkbox{width:100%;margin-top:10px;text-align:center;}
+.other-navigator-text{color:#d3217b;}
+
+
+.form-btn{margin-top:60px;background-color:#d4237a !important;width:95%;color:white;}
+.form-btn-hover{background-color:#d6204b !important;}

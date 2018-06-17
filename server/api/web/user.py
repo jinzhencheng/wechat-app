@@ -15,7 +15,7 @@ from api import app
 
 @app.route("/user/add", methods=["POST"])
 @web_helper.allow_cross_domain
-def add():
+def add_user():
     code = request.values.get("code")
     encrypted_data = request.values.get("encryptedData")
     iv = request.values.get("iv")
@@ -32,11 +32,20 @@ def add():
     user.gender = "男" if result["gender"] else "女"
     user.open_id = result["openId"]
     user.country = result["country"]
-    selected_user = user_dal.get(user.open_id)
-    if not selected_user:
-        id = user_dal.add(user)
-    else:
-        id = selected_user.id
-    return jsonify({"my_user_id": id})
+    is_exists = user_dal.is_exists(user.open_id)
+    if not is_exists:
+        user_dal.add_user(user)
+    return jsonify({"open_id": user.open_id})
 
+
+@app.route("/openId/fetch", methods=["GET"])
+@web_helper.allow_cross_domain
+def fetch_open_id():
+    open_id = None
+    code = request.values.get("code")
+    url = builder.build_url(code)
+    response = requests.get(url)
+    if(200 == response.status_code):
+        open_id = response.json()["openid"]
+    return jsonify({"open_id": open_id})
 

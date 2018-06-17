@@ -1,8 +1,8 @@
 <view class="container">
   <scroll-view scroll-y class="scroll-container" lower-threshold="10" bindscrolltolower="bindView">
     <view wx:for="{{infoList}}" wx:key="{{item.id}}">
+    
       <view class="page-body">
-        <image wx:if="{{item.overdue}}" class="overdue-img" src="/images/page/overdue.png"></image>
         <view class="card-head">
           <image class="head-img" src="{{item.avatar_url}}"></image>
           <image class="gender-img" src="{{item.gender == '男' ? '/images/page/male.png': '/images/page/female.png'}}"></image>
@@ -16,17 +16,18 @@
           <text class="type-text">{{item.type}}</text>
         </view>
         <view class="card-body">
-          <text class="body-text">{{item.content}}</text>
+          <text class="body-text">{{"" == item.remark ? "无备注": item.remark.substring(0,30)}}</text>
         </view>
         <view class="card-foot">
           <image class="view-img" style="float:left;" src="/images/page/browse.png"></image>
           <text class="view-text" style="float:left;">{{item.browse}}</text>
-          <label wx:if="{{item.overdue}}" class="start_time_label start_time_label_overdue" for="{{item.start_time}}"></label>
-          <label wx:else class="start_time_label start_time_label_normal" for="{{item.start_time}}"></label>
+          <image wx:if="{{item.overdue}}" for="{{item.start_time}}" class="view-img"  src="/images/page/go_no.png"></image>
+          <image wx:else for="{{item.start_time}}" class="view-img" src="/images/page/go_yes.png"></image>
           <text class="view-text start_time_text">{{item.start_time}}</text>
           <text class="view-text" style="float:right;">{{item.add_time}}</text>
           <image class="view-img" style="float:right;" src="/images/page/time.png"></image>
         </view>
+            <image wx:if="{{item.overdue}}" class="overdue-img" src="/images/page/overdue.png"></image>
       </view>
     </view>
   </scroll-view>

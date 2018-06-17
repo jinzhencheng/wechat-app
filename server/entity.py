@@ -13,9 +13,8 @@ class MyUser(Base):
 
     __tablename__ = "my_user"
 
-    id = Column("id", Integer, primary_key=True)
+    open_id = Column(primary_key=True)
     nickname = Column("nickname", String)
-    open_id = Column("open_id", String)
     gender = Column("gender", String)
     avatar_url = Column("avatar_url", String)
     phone = Column("phone", String)
@@ -32,7 +31,6 @@ class Info(Base):
     __tablename__ = "info"
 
     id = Column("id", Integer, primary_key=True)
-    content = Column("content", String)
     start_time = Column("start_time", DateTime)
     start_position = Column("start_position", String)
     end_position = Column("end_position", String)
@@ -41,7 +39,7 @@ class Info(Base):
     is_available = Column("is_available", Boolean)
     add_time = Column("add_time", DateTime)
     browse = Column("browse", Integer)
-    my_user_id = Column("my_user_id", Integer, ForeignKey('my_user.id'))
+    open_id = Column("open_id", String, ForeignKey('my_user.open_id'))
 
 
 

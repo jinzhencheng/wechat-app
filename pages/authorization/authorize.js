@@ -16,8 +16,9 @@ Page({
       },
       method: 'POST',
       success: function(res){
+        console.log("授权结果")
         console.log(res)
-        wx.setStorageSync("my_user_id", res.data["id"])
+        wx.setStorageSync("openId", res.data["open_id"])
         wx.switchTab({
           url: '/pages/release/edit',
         })

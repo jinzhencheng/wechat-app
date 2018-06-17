@@ -1,32 +1,33 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/exception/page_not_found",
     "pages/logs/logs",
     "pages/release/edit",
-    "pages/authorization/authorize"
+    "pages/authorization/authorize",
+    "pages/agreement/doc"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#d4237a",
     "navigationBarTitleText": "临邑人在北京",
-    "navigationBarTextStyle":"#fff"
+    "navigationBarTextStyle": "#fff"
   },
   "tabBar": {
     "color": "#bfbfbf",
     "selectedColor": "#d4237a",
     "list": [
       {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/app/home_no.png",
-      "selectedIconPath": "images/app/home_yes.png"
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/app/home_no.png",
+        "selectedIconPath": "images/app/home_yes.png"
       },
       {
-      "pagePath": "pages/release/edit",
-      "text": "发布",
-      "iconPath": "images/app/publish_no.png",
-      "selectedIconPath": "images/app/publish_yes.png"
+        "pagePath": "pages/release/edit",
+        "text": "发布",
+        "iconPath": "images/app/publish_no.png",
+        "selectedIconPath": "images/app/publish_yes.png"
       },
       {
         "pagePath": "pages/logs/logs",
