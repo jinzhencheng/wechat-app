@@ -1,0 +1,24 @@
+/* pages/info/detail.wxss */
+
+.detail-view{margin-top:10px;}
+
+.detail-head{height:50px;border-bottom:solid 1px ghostwhite;}
+.detail-head-img{margin-top:5px;margin-left:10px;max-width: 40px; max-height:40px;border-radius: 50%;border:solid 1px gainsboro;float:left;}
+.gender-img{width:16px;height:16px;margin-bottom: 10px;float:left;margin:15px 5px;}
+.detail-head-text{float:right;margin-right:10px;margin-top:15px;}
+.detail-nickname{float:left;color:gainsboro;}
+
+.detail-body{min-height:60px;padding:10px 10px;}
+
+.detail-position{padding:10px 10px;}
+.detail-position image{width:20px;height:20px;vertical-align:middle;margin-right:5px;}
+.detail-phone{float:right;width:48px !important;height:48px !important;margin-top:10px;}
+
+
+/* browse*/
+.detail-browse{padding:10px 10px;text-align:center;}
+.detail-browse-count{font-size:12px;color:gainsboro;}
+
+/*button*/
+.detail-share-btn{color:white;background-color:#d4237a !important;width:70%;border-radius:20px;}
+.detail-share-hover{background-color:#d6204b !important;}

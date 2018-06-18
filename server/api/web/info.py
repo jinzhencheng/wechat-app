@@ -26,7 +26,9 @@ def add_info():
     remark = request.values.get("remark")
     start_time = request.values.get("startTime")
     open_id = request.values.get("openId")
+    phone = request.values.get("phone")
     info = Info()
+    info.phone = phone
     info.start_position = start_position
     info.end_position = end_position
     info.start_time = start_time
@@ -35,3 +37,13 @@ def add_info():
     info.open_id = open_id
     id = info_dal.add_info(info)
     return jsonify({"id": id})
+
+
+@app.route("/info/get", methods=["GET"])
+@web_helper.allow_cross_domain
+def get_info():
+    id = request.values.get("id")
+    if "openId" in request.values:
+        openId = request.values.get("openId")
+    entity = info_dal.get_info(id)
+    return jsonify(entity)

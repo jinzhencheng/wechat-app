@@ -16,12 +16,12 @@ Page({
       },
       method: 'POST',
       success: function(res){
-        console.log("授权结果")
-        console.log(res)
-        wx.setStorageSync("openId", res.data["open_id"])
-        wx.switchTab({
-          url: '/pages/release/edit',
+        wx.showToast({
+          title: '授权成功',
+          image: "/images/app/success.png"
         })
+        wx.setStorageSync("openId", res.data["open_id"])
+        wx.navigateBack()
       },
       fail: function(data){
         wx.showModal({

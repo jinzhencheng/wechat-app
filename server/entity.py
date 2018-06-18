@@ -3,8 +3,8 @@
 
 from sqlalchemy import Column, String, Integer, DateTime, Boolean
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import ForeignKey, Table
+from sqlalchemy.orm import relationship, backref
 
 Base = declarative_base()
 
@@ -17,13 +17,11 @@ class MyUser(Base):
     nickname = Column("nickname", String)
     gender = Column("gender", String)
     avatar_url = Column("avatar_url", String)
-    phone = Column("phone", String)
     city = Column(String)
     province = Column(String)
     country = Column(String)
     union_id = Column(String)
     info_list = relationship("Info")
-
 
 
 class Info(Base):
@@ -39,6 +37,7 @@ class Info(Base):
     is_available = Column("is_available", Boolean)
     add_time = Column("add_time", DateTime)
     browse = Column("browse", Integer)
+    phone = Column("phone", String)
     open_id = Column("open_id", String, ForeignKey('my_user.open_id'))
 
 

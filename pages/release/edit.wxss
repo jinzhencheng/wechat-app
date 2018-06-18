@@ -20,5 +20,5 @@
 .other-navigator-text{color:#d3217b;}
 
 
-.form-btn{margin-top:60px;background-color:#d4237a !important;width:95%;color:white;}
+.form-btn{margin-top:60px;background-color:#d4237a !important;width:95%;color:white;border-radius:20px;}
 .form-btn-hover{background-color:#d6204b !important;}

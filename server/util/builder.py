@@ -17,7 +17,6 @@ def cut_date(dateStr):
     return dateStr[start_index: end_index]
 
 def build_date_tip(the_date):
-    print the_date
     seconds = (datetime.now() - the_date).seconds
     days = (datetime.now() - the_date).days
     if days >= 1 and days < 2:
@@ -36,7 +35,7 @@ def build_date_tip(the_date):
         tip = "1周前"
     elif days >= 14:
         tip = "2周前"
-    elif seconds >= 60 and seconds < 3:
+    elif seconds >= 60 and seconds < 60 * 3:
         tip = "1分钟前"
     elif seconds >= 60 * 3 and seconds < 60 * 5:
         tip = "3分钟前"

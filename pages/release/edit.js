@@ -105,7 +105,6 @@ Page({
   onLoad: function (options) {
     wx.getSetting({
       success: function(res){
-        console.log(res)
         if (res.authSetting['scope.userInfo']){
           var openId = wx.getStorageSync("openId")
           if(!openId){
@@ -130,16 +129,13 @@ Page({
                 }
               },
               fail:function(){
-                wx.showModal({
-                  title: '提示',
-                  content: '请求服务器故障',
-                })
+                app.error()
               }
 
             })
           }
         }else{
-          wx.redirectTo({
+          wx.navigateTo({
             url: '/pages/authorization/authorize',
           })
           
@@ -161,6 +157,7 @@ Page({
       selectedTime: currentTime
     })
   },
+
 
   zeroFill:function(i){  
     if(i >= 0 && i <= 9) {

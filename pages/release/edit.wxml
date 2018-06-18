@@ -47,7 +47,6 @@
         </checkbox>
       </checkbox-group>
       
-
       <button class="form-btn" hover-class="form-btn-hover" disabled="{{submitBtnDisabled}}" form-type="submit">确认发布</button>
     </form>
   </view>

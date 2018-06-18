@@ -1,9 +1,16 @@
 const app = getApp()
-var isFirst = true
+var hasData = true
 Page({
   data: {
     infoList: [],
     pageIndex: 0
+  },
+
+  showDetail: function(event){
+    var id = event.currentTarget["id"]
+    wx.navigateTo({
+      url: `/pages/info/detail?id=${id}`
+    })
   },
 
   bindView: function(){
@@ -22,8 +29,8 @@ Page({
       },
       success: function(res){
         var { infoList, pageIndex } = that.data
-        if(!res.data && isFirst){
-          isFirst = false
+        if (!res.data && hasData){
+          hasData = false
           return
          }
         res.data.forEach(function(item){
@@ -57,10 +64,36 @@ Page({
     this.bindData(pageIndex)
   },
 
+  onShow: function(){
+    // TODO: 待处理
+    /*
+    wx.showToast({
+      title: "加载失败",
+      image: "/images/app/fail.png"
+    })
+    */
+    
+    /*
+    wx.showLoading({
+      title: "有新消息",
+      success:function(res){
+
+      },
+      fail:function(res){
+        wx.showToast({
+          title: "加载最新消息时失败",
+          image: "/images/app/fail.png"
+        })
+      }
+    })
+    */
+    //wx.hideLoading()
+  },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+    var path = "/pages/index/index"
+    app.share(path)
   }
 })

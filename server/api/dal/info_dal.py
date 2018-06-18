@@ -27,7 +27,7 @@ def list_info(page_index=1, page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
              "end_position": item.Info.end_position, "remark": item.Info.remark,
              "nickname": item.MyUser.nickname, "gender": item.MyUser.gender,
              "add_time": builder.build_date_tip(item.Info.add_time), "browse": item.Info.browse,
-             "avatar_url": item.MyUser.avatar_url, "phone": item.MyUser.phone, "overdue": (datetime.now() > item.Info.start_time)}
+             "avatar_url": item.MyUser.avatar_url, "phone": item.Info.phone, "overdue": (datetime.now() > item.Info.start_time)}
             for item in result]
         return info_list
     except Exception, e:
@@ -49,3 +49,25 @@ def add_info(info):
     except Exception, e:
         the_logger.error("An exception happened when insert a 'info' entity into DB, details: %s" % e.message)
     return id
+
+
+def get_info(id):
+    info = None
+    try:
+        mysql_helper.open_driver()
+        session = mysql_helper.session
+        result = session.query(Info, MyUser.avatar_url, MyUser.gender, MyUser.nickname).filter(Info.id == id).first()
+        result.Info.browse += 1
+        session.add(result.Info)
+        session.commit()
+        info = {"browse": result.Info.browse, "add_time": builder.cut_date(result.Info.add_time.strftime("%Y-%m-%d %H:%M:%S")),
+                "remark": result.Info.remark, "type": result.Info.type,
+                "start_time": builder.cut_date(result.Info.start_time.strftime("%Y-%m-%d %H:%M:%S")),
+                "start_position": result.Info.start_position, "end_position": result.Info.end_position,
+                "phone": result.Info.phone, "avatar_url": result.avatar_url, "gender": result.gender,
+                "nickname": result.nickname}
+    except Exception, e:
+        the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
+    return info
+
+
