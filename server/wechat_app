@@ -465,3 +465,41 @@
 2018-06-18 19:54:33,428 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '118.24.121.119' (10060)")
 2018-06-18 19:58:23,993 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '118.24.121.119' (10060)")
 2018-06-18 19:58:23,993 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '118.24.121.119' (10060)")
+2018-06-19 11:27:40,012 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Query' object has no attribute 'is_available'
+2018-06-19 11:27:40,012 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Query' object has no attribute 'is_available'
+2018-06-19 11:27:45,569 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Query' object has no attribute 'is_available'
+2018-06-19 11:27:45,569 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Query' object has no attribute 'is_available'
+2018-06-19 11:30:34,155 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Query' object has no attribute 'is_available'
+2018-06-19 11:30:34,155 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Query' object has no attribute 'is_available'
+2018-06-19 11:36:16,644 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'NoneType' object has no attribute 'update'
+2018-06-19 11:36:16,644 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'NoneType' object has no attribute 'update'
+2018-06-19 11:38:48,970 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'NoneType' object has no attribute 'update'
+2018-06-19 11:38:48,970 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'NoneType' object has no attribute 'update'
+2018-06-19 11:39:11,463 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'NoneType' object has no attribute 'update'
+2018-06-19 11:39:11,463 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'NoneType' object has no attribute 'update'
+2018-06-19 11:41:43,634 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Info' object has no attribute 'update'
+2018-06-19 11:41:43,634 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'Info' object has no attribute 'update'
+2018-06-19 11:42:44,111 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'long' object has no attribute 'is_available'
+2018-06-19 11:42:44,111 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: 'long' object has no attribute 'is_available'
+2018-06-19 11:44:21,948 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: invalid literal for int() with base 10: 'undefinedundefinedundefinedundefinedundefined'
+2018-06-19 11:44:21,948 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: invalid literal for int() with base 10: 'undefinedundefinedundefinedundefinedundefined'
+2018-06-19 11:47:50,239 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: invalid literal for int() with base 10: 'undefinedundefinedundefinedundefinedundefined'
+2018-06-19 11:47:50,239 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: invalid literal for int() with base 10: 'undefinedundefinedundefinedundefinedundefined'
+2018-06-19 12:12:16,947 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: filter() got an unexpected keyword argument 'is_available'
+2018-06-19 12:12:16,947 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: filter() got an unexpected keyword argument 'is_available'
+2018-06-19 12:12:37,584 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: filter() got an unexpected keyword argument 'is_available'
+2018-06-19 12:12:37,584 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: filter() got an unexpected keyword argument 'is_available'
+2018-06-19 12:13:13,341 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: filter() got an unexpected keyword argument 'is_available'
+2018-06-19 12:13:13,341 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: filter() got an unexpected keyword argument 'is_available'
+2018-06-19 13:38:27,302 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (2013, 'Lost connection to MySQL server during query')
+2018-06-19 13:38:27,302 - wechat_app - ERROR - An exception happened, details: (_mysql_exceptions.OperationalError) (2013, 'Lost connection to MySQL server during query')
+2018-06-19 13:38:27,318 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 13:38:27,318 - wechat_app - ERROR - An exception happened when get a 'info' entity from DB, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 13:39:04,486 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 13:39:04,486 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 13:39:18,158 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 13:39:18,158 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 13:40:07,454 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 13:40:07,454 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 14:04:58,829 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back
+2018-06-19 14:04:58,829 - wechat_app - ERROR - An exception happened, details: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back

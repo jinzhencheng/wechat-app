@@ -12,7 +12,7 @@ from api import app
 @app.route("/info/list", methods=["GET"])
 @web_helper.allow_cross_domain
 def list_info():
-    page_index = request.values.get("page_index")
+    page_index = request.values.get("pageIndex")
     result = info_dal.list_info(page_index=int(page_index))
     return jsonify(result)
 
@@ -41,9 +41,25 @@ def add_info():
 
 @app.route("/info/get", methods=["GET"])
 @web_helper.allow_cross_domain
-def get_info():
+def get_info_by_id():
     id = request.values.get("id")
-    if "openId" in request.values:
-        openId = request.values.get("openId")
     entity = info_dal.get_info(id)
     return jsonify(entity)
+
+
+@app.route("/info/list_by_user", methods=["GET"])
+@web_helper.allow_cross_domain
+def list_info_by_open_id():
+    open_id = request.values.get("openId")
+    page_index = request.values.get("pageIndex")
+    list = info_dal.list_user_info(open_id, page_index)
+    return jsonify(list)
+
+
+@app.route("/info/delete", methods=["GET"])
+@web_helper.allow_cross_domain
+def delete_info():
+    id = request.values.get("id")
+    result = info_dal.delete_info(id)
+    status = "success" if result else "fail"
+    return jsonify({"status": status})

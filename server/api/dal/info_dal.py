@@ -14,11 +14,11 @@ mysql_helper = db_helper.MySqlHelper()
 the_logger = logger.get_logger()
 
 
-def list_info(page_index=1, page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
+def list_info(page_index=0, page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
     skip_count = page_index * page_size
     mysql_helper.open_driver()
+    session = mysql_helper.session
     try:
-        session = mysql_helper.session
         result = session.query(Info, MyUser).join(MyUser).filter(Info.is_available == GeneralConfig.DEFAULT_AVAILABLE)\
             .order_by(desc(Info.add_time)).offset(skip_count).limit(page_size).all()
         info_list = [
@@ -31,6 +31,7 @@ def list_info(page_index=1, page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
             for item in result]
         return info_list
     except Exception, e:
+        session.rollback()
         the_logger.error("An exception happened, details: %s" % e.message)
 
 
@@ -41,22 +42,24 @@ def add_info(info):
     info.browse = GeneralConfig.DEFAULT_BROWSE
     id = 0
     mysql_helper.open_driver()
+    session = mysql_helper.session
     try:
-        session = mysql_helper.session
         session.add(info)
         session.commit()
         id = info.id
     except Exception, e:
+        session.rollback()
         the_logger.error("An exception happened when insert a 'info' entity into DB, details: %s" % e.message)
     return id
 
 
 def get_info(id):
     info = None
+    mysql_helper.open_driver()
+    session = mysql_helper.session
     try:
-        mysql_helper.open_driver()
-        session = mysql_helper.session
-        result = session.query(Info, MyUser.avatar_url, MyUser.gender, MyUser.nickname).filter(Info.id == id).first()
+        result = session.query(Info, MyUser.avatar_url, MyUser.gender, MyUser.nickname)\
+            .filter(Info.id == id, Info.is_available == GeneralConfig.DEFAULT_AVAILABLE).first()
         result.Info.browse += 1
         session.add(result.Info)
         session.commit()
@@ -67,7 +70,37 @@ def get_info(id):
                 "phone": result.Info.phone, "avatar_url": result.avatar_url, "gender": result.gender,
                 "nickname": result.nickname}
     except Exception, e:
+        session.rollback()
         the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
     return info
 
 
+def list_user_info(open_id, page_index=0,page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
+    skip_count = page_index * page_size
+    info_list = list()
+    mysql_helper.open_driver()
+    session = mysql_helper.session
+    try:
+        result = session.query(Info).filter(Info.open_id == open_id, Info.is_available == GeneralConfig.DEFAULT_AVAILABLE)\
+            .order_by(desc(Info.id)).offset(skip_count).limit(page_size).all()
+        info_list = [{"id":item.id, "start_position": item.start_position, "end_position": item.end_position,
+                      "start_time": builder.cut_date(item.start_time.strftime("%Y-%m-%d %H:%M:%S")), "type": item.type, "remark": item.remark,
+                      "add_time": item.add_time, "browse": item.browse, "phone": item.phone}
+                     for item in result]
+    except Exception, e:
+        session.rollback()
+        the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
+    return info_list
+
+
+def delete_info(id):
+    n = None
+    mysql_helper.open_driver()
+    session = mysql_helper.session
+    try:
+        n = session.query(Info).filter(Info.id == id).update({"is_available": 0})
+        session.commit()
+    except Exception, e:
+        session.rollback()
+        the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
+    return n

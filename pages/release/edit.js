@@ -27,7 +27,7 @@ Page({
       })
       return 
     }
-    var openId = wx.getStorageSync("openId")
+    var openId = app.openId()
     console.log("openId:", openId)
     wx.request({
       url: `${app.globalData.server}/info/add`,
@@ -59,10 +59,7 @@ Page({
         }
       },
       fail:function(res){
-        wx.showModal({
-          title: '提示',
-          content: '发布信息时失败',
-        })
+        app.erro()
       }
     })
   },
@@ -105,40 +102,10 @@ Page({
   onLoad: function (options) {
     wx.getSetting({
       success: function(res){
-        if (res.authSetting['scope.userInfo']){
-          var openId = wx.getStorageSync("openId")
-          if(!openId){
-            var code = wx.getStorageSync("code")
-            if(!code){
-              wx.showModal({
-                title: '警告',
-                content: '登录状态失效，请重新删除小程序，重新登录',
-                showCancel: false
-              })
-              return
-            }
-            wx.request({
-              url: `${app.globalData.server}/openId/fetch`,
-              method: "GET",
-              data:{
-                code: code
-              },
-              success: function(res){
-                if(res.data["open_id"]){
-                  wx.setStorageSync("openId", res.data["open_id"])
-                }
-              },
-              fail:function(){
-                app.error()
-              }
-
-            })
-          }
-        }else{
+        if (!res.authSetting['scope.userInfo']){
           wx.navigateTo({
             url: '/pages/authorization/authorize',
           })
-          
         }
       }
     })

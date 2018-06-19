@@ -7,7 +7,8 @@
     "pages/authorization/authorize",
     "pages/agreement/doc",
     "pages/info/detail",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/my/release"
   ],
   "window": {
     "backgroundTextStyle": "light",

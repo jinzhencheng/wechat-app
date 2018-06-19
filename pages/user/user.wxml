@@ -3,9 +3,11 @@
   <text class="user-view-text">\n {{user.nickName}}</text>
 </view>
 
-<view class="user-menu">
+<view class="user-menu" bindtap="showRealse">
   <image src="/images/app/publish_yes.png"></image>
   <text>我的发布</text>
 </view>
 
+<!--
 <button class="user-btn" hover-class="user-btn-hover">加入微信群</button>
+-->

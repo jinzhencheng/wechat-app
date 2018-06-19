@@ -6,6 +6,7 @@
 
 .user-menu{width:100%;height:50px;background:#fff;border-bottom:solid 1px ghostwhite;}
 .user-menu image{width:24px;height:24px;margin:10px 10px;vertical-align:middle;}
+.user-menu text{line-height:50px;}
 
 .user-btn{margin-top:60px;color:white;background-color:#d4237a !important;width:70%;border-radius:20px;}
 .user-btn-hover{background-color:#d6204b !important;}

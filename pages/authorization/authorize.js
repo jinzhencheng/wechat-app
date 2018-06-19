@@ -16,19 +16,12 @@ Page({
       },
       method: 'POST',
       success: function(res){
-        wx.showToast({
-          title: '授权成功',
-          image: "/images/app/success.png"
-        })
+        app.success()
         wx.setStorageSync("openId", res.data["open_id"])
         wx.navigateBack()
       },
       fail: function(data){
-        wx.showModal({
-          title: '提示',
-          content: '授权失败，请重新打开该系统',
-          showCancel: false
-        })
+        wx.error()
       }
     })
   },

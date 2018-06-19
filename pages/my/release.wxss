@@ -1,0 +1,8 @@
+/* pages/my/release.wxss */
+
+
+.release-card{background:#fff;width:95%;padding:10px 10px;height:70px;margin-top:10px;border-bottom:solid 1px ghostwhite;}
+.release-card image{width:20px;height:20px;vertical-align:middle;margin-right:5px;}
+.release-delete{float:right;width:32px !important;height:32px !important;margin-top:15px;}
+
+.release-more{font-size:12px;color:#8a8a8a;margin-top:10px;}

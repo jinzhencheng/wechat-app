@@ -1,0 +1,12 @@
+<view class="container">
+  <view wx:for="{{infoList}}" wx:key="{{item.id}}" class="release-card">
+    <image class="release-delete" src="/images/page/delete.png" bindtap="deleteInfo" id="{{item.id}}"></image>
+    <image src="/images/page/start.png"></image>
+    <text>{{item.start_position}} \n </text>
+    <image src="/images/page/end.png"></image>
+    <text>{{item.end_position}} \n </text>
+    <image src="/images/page/go.png"></image>
+    <text>{{item.start_time}}</text>
+  </view>
+  <text class="release-more">{{ hasData ? "下拉页面加载更多": "已没有更多"}}</text>
+</view>

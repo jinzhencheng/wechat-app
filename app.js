@@ -36,6 +36,58 @@ App({
     })
   },
 
+  fail: function(){
+    wx.showToast({
+      title: '失败',
+      image: "/images/app/fail.png"
+    })
+  },
+
+  success: function(){
+    wx.showToast({
+      title: '成功',
+      image: "/images/app/success.png"
+    })
+  },
+
+  warning: function(){
+    wx.showModal({
+      title: '警告',
+      content: '登录状态失效，请重新删除小程序，重新登录',
+      showCancel: false
+    })
+  },
+
+  openId: function(){
+    var that = this
+    var openId = wx.getStorageSync("openId")
+    if (!openId) {
+      var code = wx.getStorageSync("code")
+      if (!code) {
+        that.warning()
+        return
+      }
+      wx.request({
+        url: `${that.globalData.server}/openId/fetch`,
+        method: "GET",
+        data: {
+          code: code
+        },
+        success: function (res) {
+          if (res.data["open_id"]) {
+            openId = res.data["open_id"]
+            wx.setStorageSync("openId", openId)
+          }
+        },
+        fail: function () {
+          that.error()
+          return
+        }
+      })
+    }
+    return openId
+  },
+
   globalData: {
     server: 'http://localhost:5000'
   }
