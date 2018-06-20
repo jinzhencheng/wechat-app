@@ -5,7 +5,8 @@ Page({
     selectedDate: "",
     selectedTime: "",
     remarkTip: "备注",
-    submitBtnDisabled: false
+    submitBtnDisabled: false,
+    screenHeight: 750 // default screen height defined by Jinzc
   },
 
   submit: function(event){
@@ -28,7 +29,6 @@ Page({
       return 
     }
     var openId = app.openId()
-    console.log("openId:", openId)
     wx.request({
       url: `${app.globalData.server}/info/add`,
       header: {
@@ -96,25 +96,22 @@ Page({
       remarkTip: remark
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    wx.getSetting({
-      success: function(res){
-        if (!res.authSetting['scope.userInfo']){
-          wx.navigateTo({
-            url: '/pages/authorization/authorize',
-          })
-        }
-      }
-    })
+ 
+  onLoad: function () {
+    var that = this
+    var system = wx.getStorageSync("system")
+    if (system) {
+      that.setData({
+        screenHeight: system["screenHeight"]
+      })
+    }
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var currentPath = "/pages/release/edit"
+    app.authorize(currentPath)
     var that = this
     var date = new Date()
     var currentDate = `${date.getFullYear()}-${that.zeroFill(date.getMonth() + 1)}-${that.zeroFill(date.getDate())}`

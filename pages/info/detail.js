@@ -52,9 +52,6 @@ Page({
           })
         }
       },
-      fail: function(res){
-        
-      }
     })
   },
 

@@ -1,9 +1,29 @@
 var app = getApp()
+const defaultPrePath = "/pages/index/index"
 Page({
+
+  data:{
+    prePath: defaultPrePath
+  },
+
+  onLoad: function(options){
+    var that = this
+    var prePath = options["prePath"]
+    that.setData({
+      prePath: prePath
+    })
+  },
+
   getUserInfo:function(res){
+    var that = this
+    if(res.detail["errMsg"].search("fail") != -1){
+      app.fail()
+      return 
+    }
+
     var code = wx.getStorageSync("code")
     var detail = res.detail
-    wx.setStorageSync("userInfo", res.detail["userInfo"])
+    wx.setStorageSync("userInfo", detail["userInfo"])
     wx.request({
       url: `${app.globalData.server}/user/add`,
       data: {
@@ -18,10 +38,12 @@ Page({
       success: function(res){
         app.success()
         wx.setStorageSync("openId", res.data["open_id"])
-        wx.navigateBack()
+        wx.switchTab({
+          url: that.data.prePath,
+        })
       },
-      fail: function(data){
-        wx.error()
+      fail: function(res){
+        app.error()
       }
     })
   },

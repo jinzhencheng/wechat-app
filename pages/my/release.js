@@ -1,4 +1,5 @@
 const app = getApp()
+var initPageIndex = 0
 Page({
 
   /**
@@ -6,12 +7,12 @@ Page({
    */
   data: {
     infoList: [],
-    pageIndex: 0,
-    hasData: true
+    pageIndex: initPageIndex,
+    hasData: true,
+    screenHeight: 750 //default screen height defined by Jinzc
   },
 
   bindData: function(pageIndex){
-    console.log("page index: ", pageIndex)
     var that = this
     var openId = app.openId()
     if(!that.data.hasData){
@@ -78,10 +79,22 @@ Page({
       }
     })
   },
+
+  onLoad: function(){
+    var that = this
+    var system = wx.getStorageSync("system")
+    if(system){
+      that.setData({
+        screenHeight: system["screenHeight"]
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    app.authorize()
     var that = this
     var { pageIndex } = that.data
     that.bindData(pageIndex)
@@ -93,7 +106,10 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     var { pageIndex } = that.data
-    that.bindData(pageIndex + 1)
+    that.bindData(initPageIndex)
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 2000)
   },
 
 })

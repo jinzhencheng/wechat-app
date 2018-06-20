@@ -1,4 +1,4 @@
-<view class="container">
+<view style="height:{{screenHeight}}px;background: #F5F5F5;">
   <view class="edit-tip-container">
     <text class="edit-tip-text">提示：违法广告信息将会被永久禁言</text>
   </view>
@@ -24,7 +24,7 @@
       <view class="form-input-view">
         <image src="/images/page/go.png"></image>
         <label for="startTime">出发时间</label>
-        <picker mode="time" value="{{selectedTime}}" id="startTime" start="{{selectedTime}}" bindchange="bindTime">
+        <picker mode="time" value="{{selectedTime}}" id="startTime" bindchange="bindTime">
           <text>{{selectedTime}}</text>
         </picker>
         <picker mode="date" value="{{selectedDate}}" start="{{selectedDate}}" bindchange="bindDate">

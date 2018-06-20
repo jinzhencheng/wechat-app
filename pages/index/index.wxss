@@ -4,34 +4,31 @@
   background: #fff;
   margin: 10px auto;
   position:relative;
-}
-.scroll-container{
-  height:1000px;
-}
+ }
 
 /*card head style*/
-.card-head{height:40px; padding:5px 10px;}
-.head-img{max-width: 40px; max-height:40px;border-radius: 50%;border:solid 1px gainsboro;float:left;}
-.gender-img{width:16px;height:16px;margin-bottom: 10px;float:left;margin:10px 5px;}
-.type-text{float:right;margin-top:10px;font-size:14px;}
-.type-img{width:16px;height:16px;float:right;margin-top:10px;vertical-align:middle;margin-left:5px;}
+.card-head{height:60px; padding:10px 10px;}
+.head-img{max-width: 45px; max-height:45px;border-radius: 50%;border:solid 1px gainsboro;float:left;}
+.gender-img{width:16px;height:16px;float:left;margin:20px 5px;}
+.type-text{float:right;margin-top:20px;font-size:16px;}
+.type-img{width:16px;height:16px;float:right;margin-top:20px;vertical-align:middle;margin-left:5px;}
 .head-position{float:left;}
 
 /* card body style */
-.card-body{padding:5px 10px 10px;min-height:40px;text-align:left;}
-.body-text{font-size:14px;text-align:left;color:gray;}
-.overdue-img{position:absolute;top:20px;left:100px;z-index:999; width:90px;height:64px;}
+.card-body{padding:0 10px;min-height:60px;text-align:left;}
+.body-text{width:100%;font-size:16px;text-align:left;color:gray;}
+.overdue-img{position:absolute;top:20px;left:150px;z-index:999; width:90px;height:64px;}
 .position-img{width:16px;height:16px;margin-right:5px;vertical-align:middle;}
-.position-text{font-size:12px;}
+.position-text{font-size:16px;}
 
 /* card foot style */
 .card-foot{height:20px;border-top: solid 1px ghostwhite;padding:10px 10px;text-align:center;}
-.view-text{font-size:12px;color:gainsboro;}
+.view-text{font-size:14px;color:gainsboro;margin-left:10px;}
 .view-img{height:16px;width:16px;vertical-align:middle;}
 
 .start_time_label{display:inline-block;width:12px;height:12px;border-radius:50%;}
 .start_time_label_overdue{background:#db639b;}
 .start_time_label_normal{background:#7cba59;}
-.start_time_text{color:gray;font-size:14px;margin-left:5px;}
+.start_time_text{color:gray;font-size:16px;margin-left:5px;}
 
 

@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-#!/usr/bin/python
 # Created by Jin(jinzhencheng@auto-smart.com) at 2018/06/14.
 
 

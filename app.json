@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/exception/page_not_found",
-    "pages/logs/logs",
     "pages/release/edit",
     "pages/authorization/authorize",
     "pages/agreement/doc",

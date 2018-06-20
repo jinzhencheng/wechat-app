@@ -1,9 +1,11 @@
 const app = getApp()
+var initPageIndex = 0
 Page({
   data: {
     infoList: [],
-    pageIndex: 0,
-    hasData: true
+    pageIndex: initPageIndex,
+    hasData: true,
+    screenHeight: 650 // default screen height defined by Jinzc
   },
 
   showDetail: function(event){
@@ -16,7 +18,7 @@ Page({
   bindView: function(){
     console.log('触发了底部滚动事件')
     var { pageIndex } = this.data;
-    this.bindData(pageIndex)
+    this.bindData(pageIndex + 1)
   },
 
   bindData: function(pageIndex){
@@ -31,34 +33,49 @@ Page({
         pageIndex: pageIndex
       },
       success: function(res){
-        var { infoList, pageIndex } = that.data
+        var { infoList } = that.data
         if (res.data.length <= 0){
           that.setData({
             hasData: false
           })
           return
          }
+        if(0 === pageIndex){
+          infoList = []
+        }
         res.data.forEach(function(item){
           infoList.push(item)
         })
         that.setData({
-          infoList: infoList,
-          pageIndex: pageIndex + 1
+          infoList: infoList
         })
       },
       fail: function(res){
-        wx.fail()
+        app.fail()
       }
     })
   },
 
+  onLoad: function(){
+    var that = this
+    var system = wx.getStorageSync("system")
+    if(system){
+      that.setData({
+        screenHeight: system["screenHeight"]
+      })
+    }
+  },
  
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    console.log("用户执行了下拉动作")
     var { pageIndex } = this.data
-    this.bindData(pageIndex)
+    this.bindData(initPageIndex)
+    setTimeout(function(){
+      wx.stopPullDownRefresh()
+    },2000)
   },
 
   onShow: function(){

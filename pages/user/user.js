@@ -6,51 +6,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user: null
+    user: null,
+    screenHeight: 750 //default screen height defined by Jinzc
   },
 
-  showRealse: function(){
+  showRelease: function(){
     wx.navigateTo({
       url: "/pages/my/release",
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          var userInfo = wx.getStorageSync("userInfo")
-          if(!userInfo){
-            wx.getUserInfo({
-              success: function(res){
-                wx.setStorageSync("userInfo", res.detail["userInfo"])
-              },
-              fail: function(){
-                app.error()
-              }
-            })
-          }
-        } else {
-          wx.navigateTo({
-            url: '/pages/authorization/authorize',
-          })
-        }
-      }
-    })
+
+  onLoad: function () {
+    var that = this
+    var system = wx.getStorageSync("system")
+    if (system) {
+      that.setData({
+        screenHeight: system["screenHeight"]
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var currentPath = "/pages/user/user"
+    app.authorize(currentPath)
     var that = this
     var userInfo = wx.getStorageSync("userInfo")
     that.setData({
       user: userInfo
     })
-    console.log(userInfo)
   },
 
 })

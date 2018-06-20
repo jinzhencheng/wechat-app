@@ -1,13 +1,17 @@
-<view class="user-view">
-  <image class="user-view-img" src="{{user.avatarUrl}}"></image>
-  <text class="user-view-text">\n {{user.nickName}}</text>
-</view>
+<view style="height:{{screenHeight}}px;background: #F5F5F5;" >
+  <view class="user-view">
+    <image class="user-view-img" src="{{user.avatarUrl}}"></image>
+    <text class="user-view-text">\n {{user.nickName}}</text>
+  </view>
 
-<view class="user-menu" bindtap="showRealse">
-  <image src="/images/app/publish_yes.png"></image>
-  <text>我的发布</text>
-</view>
+  <view class="user-menu" bindtap="showRelease">
+    <image src="/images/app/publish_yes.png"></image>
+    <text>我的发布</text>
+  </view>
 
-<!--
-<button class="user-btn" hover-class="user-btn-hover">加入微信群</button>
--->
+  <button class="user-btn" hover-class="user-btn-hover" open-type="contact">向作者反馈</button>
+
+  <!--
+  <button class="user-btn" hover-class="user-btn-hover">加入微信群</button>
+  -->
+</view>

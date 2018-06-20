@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container"  style="height:{{screenHeight}}px">
   <scroll-view scroll-y class="scroll-container" lower-threshold="10" bindscrolltolower="bindView">
     <view wx:for="{{infoList}}" wx:key="{{item.id}}">
 
@@ -27,7 +27,7 @@
           <text class="view-text" style="float:right;">{{item.add_time}}</text>
           <image class="view-img" style="float:right;" src="/images/page/time.png"></image>
         </view>
-            <image wx:if="{{item.overdue}}" class="overdue-img" src="/images/page/overdue.png"></image>
+        <image wx:if="{{item.overdue}}" class="overdue-img" src="/images/page/overdue.png"></image>
       </view>
     </view>
   </scroll-view>

@@ -4,6 +4,11 @@ App({
       wx.login({
         success: function(res) {
           wx.setStorageSync("code", res.code)
+          wx.getSystemInfo({
+            success: function(res) {
+              wx.setStorageSync("system", res)
+            },
+          })
         },
         fail:function(res){
           wx.showModal({
@@ -88,7 +93,32 @@ App({
     return openId
   },
 
+  authorize: function(prePath){
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          var userInfo = wx.getStorageSync("userInfo")
+          if (!userInfo) {
+            wx.getUserInfo({
+              success: function (res) {
+                wx.setStorageSync("userInfo", res.userInfo)
+              },
+              fail: function () {
+                app.error()
+              }
+            })
+          }
+        } else {
+          wx.redirectTo({
+            url: `/pages/authorization/authorize?prePath=${prePath}`,
+          })
+        }
+      }
+    })
+  },
+
   globalData: {
-    server: 'http://localhost:5000'
+    server: 'http://118.24.121.119:5000'
+    //server: "http://localhost:5000"
   }
 })
