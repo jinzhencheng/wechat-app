@@ -18,6 +18,7 @@ Page({
     if(!that.data.hasData){
       return
     }
+    app.loading()
     wx.request({
       url: `${app.globalData.server}/info/list_by_user`,
       data: {
@@ -44,12 +45,14 @@ Page({
       },
       fail: function () {
         app.fail()
+      },
+      complete: function(){
+        wx.hideToast()
       }
     })
   },
 
   deleteInfo: function(event){
-    console.log(event)
     var that = this
     var confirm = false
     wx.showModal({

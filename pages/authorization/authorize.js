@@ -9,9 +9,11 @@ Page({
   onLoad: function(options){
     var that = this
     var prePath = options["prePath"]
-    that.setData({
-      prePath: prePath
-    })
+    if(prePath){
+      that.setData({
+        prePath: prePath
+      })
+    }
   },
 
   getUserInfo:function(res){
@@ -20,14 +22,27 @@ Page({
       app.fail()
       return 
     }
-
-    var code = wx.getStorageSync("code")
+    app.loading()
+    wx.checkSession({
+      fail: function(res){
+        wx.login({
+          success: function(res){
+            wx.setStorageSync("code", res.code)
+          }
+        })
+      },
+      complete:function(){
+        wx.hideToast()
+      }
+    })   
+    
     var detail = res.detail
     wx.setStorageSync("userInfo", detail["userInfo"])
+    console.log("wx code:", wx.getStorageSync("code"))
     wx.request({
       url: `${app.globalData.server}/user/add`,
       data: {
-        code: code,
+        code: wx.getStorageSync("code"),
         encryptedData: detail["encryptedData"],
         iv: detail["iv"]
       },
@@ -39,11 +54,14 @@ Page({
         app.success()
         wx.setStorageSync("openId", res.data["open_id"])
         wx.switchTab({
-          url: that.data.prePath,
+          url: that.data.prePath
         })
       },
       fail: function(res){
         app.error()
+      },
+      complete: function(){
+        wx.hideToast()
       }
     })
   },

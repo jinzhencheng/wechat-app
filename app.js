@@ -20,7 +20,6 @@ App({
   },
 
   share: function(path){
-    console.log(path)
     return{
       title: "临邑人在北京 一个为临邑老乡拼车回家提供方便的平台",
       path: path,
@@ -33,6 +32,14 @@ App({
     }
   },
 
+  loading: function(){
+    wx.showToast({
+      title: '加载中',
+      icon: "loading",
+      mask: true
+    })
+  },
+
   error:function(){
     wx.showModal({
       title: '错误',
@@ -41,7 +48,8 @@ App({
     })
   },
 
-  fail: function(){
+  fail: function(res){
+    console.log(res)
     wx.showToast({
       title: '失败',
       image: "/images/app/fail.png"
@@ -86,7 +94,6 @@ App({
         },
         fail: function () {
           that.error()
-          return
         }
       })
     }
@@ -118,7 +125,7 @@ App({
   },
 
   globalData: {
-    server: 'http://118.24.121.119:5000'
-    //server: "http://localhost:5000"
+    //server: 'http://118.24.121.119:5000'
+    server: "http://localhost:5000"
   }
 })

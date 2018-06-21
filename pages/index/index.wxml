@@ -16,7 +16,7 @@
           <text class="type-text">{{item.type}}</text>
         </view>
         <view class="card-body">
-          <text class="body-text">{{"" == item.remark ? "无备注": item.remark}}</text>
+          <text class="body-text">{{"" == item.remark ? "这位老乡比较懒~ 没留下任何备注信息": item.remark}}</text>
         </view>
         <view class="card-foot">
           <image class="view-img" style="float:left;" src="/images/page/browse.png"></image>

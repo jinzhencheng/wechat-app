@@ -1,5 +1,6 @@
 <!--pages/info/detail.wxml-->
 <view class="detail-view">
+ <image wx:if="{{info.overdue}}" class="overdue-img" src="/images/page/overdue.png"></image>
   <view class="detail-head">
     <image class="detail-head-img" src="{{info.avatar_url}}"></image>
     <image class="gender-img" src="{{'男' == info.gender ? '/images/page/male.png': '/images/page/female.png'}}"></image>

@@ -16,7 +16,6 @@ Page({
   },
 
   bindView: function(){
-    console.log('触发了底部滚动事件')
     var { pageIndex } = this.data;
     this.bindData(pageIndex + 1)
   },
@@ -34,7 +33,7 @@ Page({
       },
       success: function(res){
         var { infoList } = that.data
-        if (res.data.length <= 0){
+        if (!res.data || res.data.length <= 0){
           that.setData({
             hasData: false
           })
@@ -51,7 +50,7 @@ Page({
         })
       },
       fail: function(res){
-        app.fail()
+        app.fail(res)
       }
     })
   },
@@ -70,7 +69,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log("用户执行了下拉动作")
     var { pageIndex } = this.data
     this.bindData(initPageIndex)
     setTimeout(function(){

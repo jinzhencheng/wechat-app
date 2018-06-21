@@ -45,16 +45,9 @@ Page({
         startTime: `${that.data.selectedDate} ${that.data.selectedTime}`
       },
       success: function(res){
-        if(res && res.data["id"] > 0){
+        if(200 == res.statusCode && res.data["id"] > 0){
           wx.switchTab({
-            url: '/pages/index/index',
-            success: function (res) {
-              var page = getCurrentPages().pop()
-              if (page == undefined || page == null){
-                return
-              }
-              page.reload()
-            } 
+            url: '/pages/index/index'
           })
         }
       },

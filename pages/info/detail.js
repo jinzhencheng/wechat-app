@@ -12,6 +12,13 @@ Page({
 
   makeCall: function(){
     var that = this
+    if(that.data.info.overdue){
+      wx.showToast({
+        title: '信息已过期',
+        image: "/images/app/warning.png"
+      })
+      return
+    }
     var phone = that.data.info.phone
     wx.makePhoneCall({
       phoneNumber: phone      
@@ -20,6 +27,7 @@ Page({
 
   bindData: function(){
     var that = this
+    app.loading()
     wx.request({
       url: `${app.globalData.server}/info/get`,
       data: {
@@ -32,6 +40,9 @@ Page({
       },
       fail: function (res) {
         app.error()
+      },
+      complete: function(){
+        wx.hideToast()
       }
     })
   },
@@ -43,15 +54,6 @@ Page({
     var that = this
     that.setData({
       id: options.id
-    })
-    wx.getSetting({
-      success: function(res){
-        if (!res.authSetting['scope.userInfo']) {
-          wx.navigateTo({
-            url: '/pages/authorization/authorize',
-          })
-        }
-      },
     })
   },
 

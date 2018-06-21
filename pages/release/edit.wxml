@@ -1,6 +1,6 @@
 <view style="height:{{screenHeight}}px;background: #F5F5F5;">
   <view class="edit-tip-container">
-    <text class="edit-tip-text">提示：违法广告信息将会被永久禁言</text>
+    <text class="edit-tip-text">本小程序初衷是为了方便北漂的临邑人拼车回家，请自觉遵守双方约定，真诚相待，健康出行。</text>
   </view>
 
   <view class="form-view">

@@ -6,7 +6,7 @@
 .detail-head-img{margin-top:5px;margin-left:10px;max-width: 40px; max-height:40px;border-radius: 50%;border:solid 1px gainsboro;float:left;}
 .gender-img{width:16px;height:16px;margin-bottom: 10px;float:left;margin:15px 5px;}
 .detail-head-text{float:right;margin-right:10px;margin-top:15px;}
-.detail-nickname{float:left;color:gainsboro;}
+.detail-nickname{float:left;}
 
 .detail-body{min-height:60px;padding:10px 10px;}
 
@@ -22,3 +22,6 @@
 /*button*/
 .detail-share-btn{color:white;background-color:#d4237a !important;width:70%;border-radius:20px;}
 .detail-share-hover{background-color:#d6204b !important;}
+
+
+.overdue-img{position:absolute;top:50px;left:150px;z-index:999; width:90px;height:64px;}

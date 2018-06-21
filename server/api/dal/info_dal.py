@@ -68,7 +68,7 @@ def get_info(id):
                 "start_time": builder.cut_date(result.Info.start_time.strftime("%Y-%m-%d %H:%M:%S")),
                 "start_position": result.Info.start_position, "end_position": result.Info.end_position,
                 "phone": result.Info.phone, "avatar_url": result.avatar_url, "gender": result.gender,
-                "nickname": result.nickname}
+                "nickname": result.nickname, "overdue": (datetime.now() > result.Info.start_time)}
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
