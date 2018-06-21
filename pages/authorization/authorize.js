@@ -3,7 +3,8 @@ const defaultPrePath = "/pages/index/index"
 Page({
 
   data:{
-    prePath: defaultPrePath
+    prePath: defaultPrePath,
+    code: null
   },
 
   onLoad: function(options){
@@ -23,26 +24,20 @@ Page({
       return 
     }
     app.loading()
-    wx.checkSession({
-      fail: function(res){
-        wx.login({
-          success: function(res){
-            wx.setStorageSync("code", res.code)
-          }
+    wx.login({
+      success: function (res) {
+        that.setData({
+          code: res.code
         })
-      },
-      complete:function(){
-        wx.hideToast()
       }
-    })   
+    })
     
     var detail = res.detail
     wx.setStorageSync("userInfo", detail["userInfo"])
-    console.log("wx code:", wx.getStorageSync("code"))
     wx.request({
       url: `${app.globalData.server}/user/add`,
       data: {
-        code: wx.getStorageSync("code"),
+        code: that.data.code,
         encryptedData: detail["encryptedData"],
         iv: detail["iv"]
       },

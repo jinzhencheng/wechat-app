@@ -5,7 +5,7 @@ Page({
     infoList: [],
     pageIndex: initPageIndex,
     hasData: true,
-    screenHeight: 650 // default screen height defined by Jinzc
+    screenHeight: 750 // default screen height defined by Jinzc
   },
 
   showDetail: function(event){
@@ -25,6 +25,7 @@ Page({
     if(!that.data.hasData){
       return
     }
+    app.loading()
     wx.request({
       url: `${app.globalData.server}/info/list`,
       method: 'GET',
@@ -33,7 +34,7 @@ Page({
       },
       success: function(res){
         var { infoList } = that.data
-        if (!res.data || res.data.length <= 0){
+        if (!res.data || res.data.length <= 0 || res.data.length < 10){
           that.setData({
             hasData: false
           })
@@ -50,7 +51,10 @@ Page({
         })
       },
       fail: function(res){
-        app.fail(res)
+        app.fail()
+      },
+      complete: function(){
+        wx.hideToast()
       }
     })
   },
@@ -77,8 +81,7 @@ Page({
   },
 
   onShow: function(){
-    var { pageIndex } = this.data
-    this.bindData(pageIndex)
+    this.bindData(initPageIndex)
   },
   /**
    * 用户点击右上角分享

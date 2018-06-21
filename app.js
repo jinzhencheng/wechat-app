@@ -1,24 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
-      wx.login({
-        success: function(res) {
-          wx.setStorageSync("code", res.code)
-          wx.getSystemInfo({
-            success: function(res) {
-              wx.setStorageSync("system", res)
-            },
-          })
-        },
-        fail:function(res){
-          wx.showModal({
-            title: '错误',
-            content: '请求失败，可能是因为你的微信版本过低造成的',
-          })
-        }
-      })
-  },
-
+  
   share: function(path){
     return{
       title: "临邑人在北京 一个为临邑老乡拼车回家提供方便的平台",
@@ -48,8 +30,7 @@ App({
     })
   },
 
-  fail: function(res){
-    console.log(res)
+  fail: function(){
     wx.showToast({
       title: '失败',
       image: "/images/app/fail.png"
@@ -71,7 +52,7 @@ App({
     })
   },
 
-  openId: function(){
+  getOpenId: function(){
     var that = this
     var openId = wx.getStorageSync("openId")
     if (!openId) {
@@ -97,6 +78,7 @@ App({
         }
       })
     }
+    console.log("openId:",openId)
     return openId
   },
 
@@ -125,7 +107,7 @@ App({
   },
 
   globalData: {
-    //server: 'http://118.24.121.119:5000'
-    server: "http://localhost:5000"
+    server: 'http://118.24.121.119:5000'
+    //server: "http://localhost:5000"
   }
 })

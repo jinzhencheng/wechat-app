@@ -1,5 +1,5 @@
 
-<view class="scroll-container" style="height:{{screenHeight}}px">
+<scroll-view scroll-y class="scroll-container" lower-threshold="10" bindscrolltolower="bindView" style="height:{{screenHeight}}px">
   <view wx:for="{{infoList}}" wx:key="{{item.id}}" class="release-card">
     <image class="release-delete" src="/images/page/delete.png" bindtap="deleteInfo" id="{{item.id}}"></image>
     <image src="/images/page/start.png"></image>
@@ -12,4 +12,4 @@
   <view class="tips">
     <text class="release-more">{{ hasData ? "下拉刷新": "没有更多"}}</text>
   </view>
-</view>
+</scroll-view>

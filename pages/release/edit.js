@@ -28,7 +28,7 @@ Page({
       })
       return 
     }
-    var openId = app.openId()
+    var openId = app.getOpenId()
     wx.request({
       url: `${app.globalData.server}/info/add`,
       header: {
@@ -45,6 +45,8 @@ Page({
         startTime: `${that.data.selectedDate} ${that.data.selectedTime}`
       },
       success: function(res){
+        console.log("提交后返回：")
+        console.log(res)
         if(200 == res.statusCode && res.data["id"] > 0){
           wx.switchTab({
             url: '/pages/index/index'

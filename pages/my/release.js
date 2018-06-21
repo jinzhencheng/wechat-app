@@ -14,11 +14,11 @@ Page({
 
   bindData: function(pageIndex){
     var that = this
-    var openId = app.openId()
     if(!that.data.hasData){
       return
     }
     app.loading()
+    var openId = app.getOpenId()
     wx.request({
       url: `${app.globalData.server}/info/list_by_user`,
       data: {
@@ -68,7 +68,6 @@ Page({
             success: function (res) {
               if ("success" == res.data["status"]) {
                 app.success()
-                var initPageIndex = 0
                 that.bindData(initPageIndex)
               } else {
                 app.fail()
@@ -97,22 +96,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.authorize()
     var that = this
-    var { pageIndex } = that.data
-    that.bindData(pageIndex)
+    that.bindData(initPageIndex)
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    var that = this
-    var { pageIndex } = that.data
-    that.bindData(initPageIndex)
-    setTimeout(function () {
-      wx.stopPullDownRefresh()
-    }, 2000)
+
+  bindView: function () {
+    var { pageIndex } = this.data;
+    this.bindData(pageIndex + 1)
   },
 
 })
