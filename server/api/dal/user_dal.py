@@ -4,12 +4,15 @@
 from util import db_helper
 from util import logger
 from entity import MyUser
+from datetime import datetime
 
 mysql_helper = db_helper.MySqlHelper()
 the_logger = logger.get_logger()
 
 
 def add_user(user):
+    add_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    user.add_time = add_time
     open_id = None
     mysql_helper.open_driver()
     session = mysql_helper.session

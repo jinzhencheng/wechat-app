@@ -1,37 +1,27 @@
 
 var app = getApp()
+var id = null
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    info: null,
-    id: null
+    info: null
   },
 
   makeCall: function(){
     var that = this
-    if(that.data.info.overdue){
-      wx.showToast({
-        title: '信息已过期',
-        image: "/images/app/warning.png"
-      })
-      return
-    }
     var phone = that.data.info.phone
     wx.makePhoneCall({
       phoneNumber: phone      
     })
   },
 
-  bindData: function(){
+  bindData: function(id){
     var that = this
     app.loading()
     wx.request({
       url: `${app.globalData.server}/info/get`,
       data: {
-        id: that.data.id
+        id: id
       },
       success: function (res) {
         that.setData({
@@ -47,22 +37,13 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    var that = this
-    that.setData({
-      id: options.id
-    })
+    id = options.id
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+   onShow: function () {
     var that = this
-    that.bindData()
+    that.bindData(id)
   },
 
   /**

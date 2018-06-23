@@ -1,6 +1,11 @@
+# -*- coding:utf-8 -*-
+# Created by Jin at 2018/06/22.
+
+
 import base64
 import json
 from Crypto.Cipher import AES
+
 
 class WXBizDataCrypt:
     def __init__(self, appId, sessionKey):

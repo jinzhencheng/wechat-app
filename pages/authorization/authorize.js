@@ -1,20 +1,51 @@
 var app = getApp()
-const defaultPrePath = "/pages/index/index"
+var defaultPrePath = "/pages/index/index"
+var redirectPath = defaultPrePath
 Page({
 
-  data:{
-    prePath: defaultPrePath,
-    code: null
-  },
+  data:{},
 
   onLoad: function(options){
     var that = this
     var prePath = options["prePath"]
     if(prePath){
-      that.setData({
-        prePath: prePath
-      })
+      redirectPath = prePath
     }
+  },
+
+  requestUser: function(requestData){
+    app.loading()
+    wx.request({
+      url: `${app.globalData.server}/user/add`,
+      data: {
+        code: requestData.code,
+        encryptedData: requestData.encryptedData,
+        iv: requestData.iv
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log("执行授权操作，返回:res", res)
+        if(200 === res.statusCode){
+          app.success()
+          wx.setStorageSync("openId", res.data["open_id"])
+          wx.switchTab({
+            url: redirectPath
+          })
+        }else{
+          app.error()
+        }
+        
+      },
+      fail: function (res) {
+        app.error()
+      },
+      complete: function () {
+        wx.hideToast()
+      }
+    })
   },
 
   getUserInfo:function(res){
@@ -23,40 +54,18 @@ Page({
       app.fail()
       return 
     }
-    app.loading()
-    wx.login({
-      success: function (res) {
-        that.setData({
-          code: res.code
-        })
-      }
-    })
-    
     var detail = res.detail
     wx.setStorageSync("userInfo", detail["userInfo"])
-    wx.request({
-      url: `${app.globalData.server}/user/add`,
-      data: {
-        code: that.data.code,
-        encryptedData: detail["encryptedData"],
-        iv: detail["iv"]
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'POST',
-      success: function(res){
-        app.success()
-        wx.setStorageSync("openId", res.data["open_id"])
-        wx.switchTab({
-          url: that.data.prePath
-        })
-      },
-      fail: function(res){
-        app.error()
-      },
-      complete: function(){
-        wx.hideToast()
+    wx.login({
+      success: function (res) {
+        console.log("登录成功后返回res:", res)
+        wx.setStorageSync("code", res.code)
+        var requestData = {
+          code: res.code, 
+          encryptedData: detail["encryptedData"],
+          iv: detail["iv"]
+          }
+        that.requestUser(requestData)
       }
     })
   },

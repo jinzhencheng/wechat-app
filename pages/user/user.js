@@ -1,10 +1,6 @@
-// pages/user/user.js
 const app = getApp()
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     user: null,
     screenHeight: 750 //default screen height defined by Jinzc

@@ -25,7 +25,7 @@ App({
   error:function(){
     wx.showModal({
       title: '错误',
-      content: '未知错误,可能是因为你的微信版本过低',
+      content: '未知错误，你可以尝试将该小程序删除后重新进入。',
       showCancel: false
     })
   },
@@ -52,6 +52,7 @@ App({
     })
   },
 
+  //TODO: 暂且丢弃该方法，授权时已保存openId
   getOpenId: function(){
     var that = this
     var openId = wx.getStorageSync("openId")
@@ -83,20 +84,18 @@ App({
   },
 
   authorize: function(prePath){
+    var that = this
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
-          var userInfo = wx.getStorageSync("userInfo")
-          if (!userInfo) {
             wx.getUserInfo({
               success: function (res) {
                 wx.setStorageSync("userInfo", res.userInfo)
               },
               fail: function () {
-                app.error()
+                that.error()
               }
             })
-          }
         } else {
           wx.redirectTo({
             url: `/pages/authorization/authorize?prePath=${prePath}`,
@@ -107,7 +106,7 @@ App({
   },
 
   globalData: {
-    server: 'http://118.24.121.119:5000'
-    //server: "http://localhost:5000"
+    //server: 'http://118.24.121.119:5000'
+    server: "http://localhost:5000"
   }
 })

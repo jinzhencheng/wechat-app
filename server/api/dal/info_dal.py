@@ -58,8 +58,8 @@ def get_info(id):
     mysql_helper.open_driver()
     session = mysql_helper.session
     try:
-        result = session.query(Info, MyUser.avatar_url, MyUser.gender, MyUser.nickname)\
-            .filter(Info.id == id, Info.is_available == GeneralConfig.DEFAULT_AVAILABLE).first()
+        result = session.query(Info, MyUser.avatar_url, MyUser.gender, MyUser.nickname).join(MyUser)\
+            .filter(Info.id == id).first()
         result.Info.browse += 1
         session.add(result.Info)
         session.commit()

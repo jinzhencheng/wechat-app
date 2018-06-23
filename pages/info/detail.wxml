@@ -11,7 +11,8 @@
     {{"" == info.remark ? "无备注": info.remark}}
   </view>
   <view class="detail-position">
-    <image class="detail-phone" src="/images/page/call.png" bindtap="makeCall"></image>
+    <image class="detail-phone" wx:if="{{info.overdue}}" src="/images/page/call_no.png"></image>
+    <image class="detail-phone" wx:else src="/images/page/call_yes.png" bindtap="makeCall"></image>
     <image src="/images/page/start.png"></image>
     <text class="position-text">{{info.start_position}} \n </text>
     <image src="/images/page/end.png"></image>

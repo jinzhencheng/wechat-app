@@ -10,8 +10,8 @@ from util import builder
 from config import GeneralConfig
 from util import wx_biz_data_crypt
 import requests
-
 from api import app
+
 
 @app.route("/user/add", methods=["POST"])
 @web_helper.allow_cross_domain

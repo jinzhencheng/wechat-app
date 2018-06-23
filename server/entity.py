@@ -21,6 +21,7 @@ class MyUser(Base):
     province = Column(String)
     country = Column(String)
     union_id = Column(String)
+    add_time = Column("add_time", DateTime)
     info_list = relationship("Info")
 
 

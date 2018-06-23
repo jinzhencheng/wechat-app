@@ -1,10 +1,12 @@
 const app = getApp()
 var initPageIndex = 0
+var pageIndex = initPageIndex
+var hasData = true
+
 Page({
+
   data: {
     infoList: [],
-    pageIndex: initPageIndex,
-    hasData: true,
     screenHeight: 750 // default screen height defined by Jinzc
   },
 
@@ -16,13 +18,12 @@ Page({
   },
 
   bindView: function(){
-    var { pageIndex } = this.data;
     this.bindData(pageIndex + 1)
   },
 
   bindData: function(pageIndex){
     var that = this
-    if(!that.data.hasData){
+    if(!hasData && initPageIndex != pageIndex){
       return
     }
     app.loading()
@@ -34,10 +35,8 @@ Page({
       },
       success: function(res){
         var { infoList } = that.data
-        if (!res.data || res.data.length <= 0 || res.data.length < 10){
-          that.setData({
-            hasData: false
-          })
+        if (!res.data || res.data.length <= 0 || (res.data.length < 10 && pageIndex != initPageIndex)){
+          hasData = false
           return
          }
         if(0 === pageIndex){
@@ -73,7 +72,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    var { pageIndex } = this.data
     this.bindData(initPageIndex)
     setTimeout(function(){
       wx.stopPullDownRefresh()

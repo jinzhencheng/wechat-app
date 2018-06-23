@@ -1,24 +1,22 @@
 const app = getApp()
 var initPageIndex = 0
+var pageIndex = initPageIndex
+var hasData = true
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     infoList: [],
-    pageIndex: initPageIndex,
-    hasData: true,
     screenHeight: 750 //default screen height defined by Jinzc
   },
 
   bindData: function(pageIndex){
     var that = this
-    if(!that.data.hasData){
+    if(!hasData && initPageIndex != pageIndex){
       return
     }
+    var openId = wx.getStorageSync("openId")
+    console.log("我的发布，获取openId:", openId)
     app.loading()
-    var openId = app.getOpenId()
     wx.request({
       url: `${app.globalData.server}/info/list_by_user`,
       data: {
@@ -27,10 +25,8 @@ Page({
       },
       success: function (res) {
         var { infoList } = that.data
-        if (res.data.length <= 0) {
-          that.setData({
-            hasData: false
-          })
+        if (!res.data || res.data.length <= 0 || (res.data.length < 10 && pageIndex != initPageIndex)) {
+          hasData = false
           return
         }
         if(0 === pageIndex){
@@ -92,17 +88,12 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     var that = this
     that.bindData(initPageIndex)
   },
 
-
   bindView: function () {
-    var { pageIndex } = this.data;
     this.bindData(pageIndex + 1)
   },
 

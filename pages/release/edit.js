@@ -28,7 +28,7 @@ Page({
       })
       return 
     }
-    var openId = app.getOpenId()
+    var openId = wx.getStorageSync("openId")
     wx.request({
       url: `${app.globalData.server}/info/add`,
       header: {
@@ -49,7 +49,13 @@ Page({
         console.log(res)
         if(200 == res.statusCode && res.data["id"] > 0){
           wx.switchTab({
-            url: '/pages/index/index'
+            url: '/pages/index/index',
+            success: function (e) {
+              var page = getCurrentPages().pop();
+              console.log(page)
+              if (page == undefined || page == null) return;
+              page.onShow();
+            }  
           })
         }
       },
