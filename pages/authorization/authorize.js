@@ -37,7 +37,6 @@ Page({
         }else{
           app.error()
         }
-        
       },
       fail: function (res) {
         app.error()
