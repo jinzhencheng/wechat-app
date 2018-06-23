@@ -15,7 +15,6 @@ Page({
       return
     }
     var openId = wx.getStorageSync("openId")
-    console.log("我的发布，获取openId:", openId)
     app.loading()
     wx.request({
       url: `${app.globalData.server}/info/list_by_user`,

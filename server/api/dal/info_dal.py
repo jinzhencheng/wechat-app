@@ -23,7 +23,7 @@ def list_info(page_index=0, page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
             .order_by(desc(Info.add_time)).offset(skip_count).limit(page_size).all()
         info_list = [
             {"id": item.Info.id, "type": item.Info.type,
-             "start_time": builder.cut_date(item.Info.start_time.strftime("%Y-%m-%d %H:%M:%S")), "start_position": item.Info.start_position,
+             "start_time": builder.cut_date(item.Info.start_time), "start_position": item.Info.start_position,
              "end_position": item.Info.end_position, "remark": item.Info.remark,
              "nickname": item.MyUser.nickname, "gender": item.MyUser.gender,
              "add_time": builder.build_date_tip(item.Info.add_time), "browse": item.Info.browse,
@@ -63,9 +63,9 @@ def get_info(id):
         result.Info.browse += 1
         session.add(result.Info)
         session.commit()
-        info = {"browse": result.Info.browse, "add_time": builder.cut_date(result.Info.add_time.strftime("%Y-%m-%d %H:%M:%S")),
+        info = {"browse": result.Info.browse, "add_time": builder.cut_date(result.Info.add_time),
                 "remark": result.Info.remark, "type": result.Info.type,
-                "start_time": builder.cut_date(result.Info.start_time.strftime("%Y-%m-%d %H:%M:%S")),
+                "start_time": builder.cut_date(result.Info.start_time),
                 "start_position": result.Info.start_position, "end_position": result.Info.end_position,
                 "phone": result.Info.phone, "avatar_url": result.avatar_url, "gender": result.gender,
                 "nickname": result.nickname, "overdue": (datetime.now() > result.Info.start_time)}
@@ -84,7 +84,7 @@ def list_user_info(open_id, page_index=0,page_size=GeneralConfig.DEFAULT_PAGE_SI
         result = session.query(Info).filter(Info.open_id == open_id, Info.is_available == GeneralConfig.DEFAULT_AVAILABLE)\
             .order_by(desc(Info.id)).offset(skip_count).limit(page_size).all()
         info_list = [{"id":item.id, "start_position": item.start_position, "end_position": item.end_position,
-                      "start_time": builder.cut_date(item.start_time.strftime("%Y-%m-%d %H:%M:%S")), "type": item.type, "remark": item.remark,
+                      "start_time": builder.cut_date(item.start_time), "type": item.type, "remark": item.remark,
                       "add_time": item.add_time, "browse": item.browse, "phone": item.phone}
                      for item in result]
     except Exception, e:

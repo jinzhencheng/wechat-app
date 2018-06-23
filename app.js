@@ -1,6 +1,35 @@
 //app.js
 App({
-  
+
+  onLaunch: function(){
+    var that = this
+    that.login()
+  }
+  ,
+  login: function () {
+    var that = this
+    wx.login({
+      success: function (res) {
+        wx.request({
+          url: `${that.globalData.server}/openId/fetch`,
+          method: "GET",
+          data: {
+            code: res.code
+          },
+          success: function (res) {
+            if (res.data["open_id"]) {
+              var openId = res.data["open_id"]
+              wx.setStorageSync("openId", openId)
+            }
+          },
+          fail: function () {
+            that.error()
+          }
+        })
+      }
+    })
+  },
+
   share: function(path){
     return{
       title: "临邑人在北京 一个为临邑老乡拼车回家提供方便的平台",
@@ -52,37 +81,6 @@ App({
     })
   },
 
-  //TODO: 暂且丢弃该方法，授权时已保存openId
-  getOpenId: function(){
-    var that = this
-    var openId = wx.getStorageSync("openId")
-    if (!openId) {
-      var code = wx.getStorageSync("code")
-      if (!code) {
-        that.warning()
-        return
-      }
-      wx.request({
-        url: `${that.globalData.server}/openId/fetch`,
-        method: "GET",
-        data: {
-          code: code
-        },
-        success: function (res) {
-          if (res.data["open_id"]) {
-            openId = res.data["open_id"]
-            wx.setStorageSync("openId", openId)
-          }
-        },
-        fail: function () {
-          that.error()
-        }
-      })
-    }
-    console.log("openId:",openId)
-    return openId
-  },
-
   authorize: function(prePath){
     var that = this
     wx.getSetting({
@@ -106,7 +104,7 @@ App({
   },
 
   globalData: {
-    //server: 'http://118.24.121.119:5000'
-    server: "http://localhost:5000"
+    server: 'http://118.24.121.119:5000'
+    //server: "http://localhost:5000"
   }
 })

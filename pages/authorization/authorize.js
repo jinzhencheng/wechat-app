@@ -13,60 +13,51 @@ Page({
     }
   },
 
-  requestUser: function(requestData){
-    app.loading()
+  addUser: function(userInfo, openId){
     wx.request({
       url: `${app.globalData.server}/user/add`,
-      data: {
-        code: requestData.code,
-        encryptedData: requestData.encryptedData,
-        iv: requestData.iv
+      method: "POST",
+      data:{
+        avatarUrl: userInfo["avatarUrl"],
+        nickName: userInfo["nickName"],
+        city: userInfo["city"],
+        province: userInfo["province"],
+        gender: userInfo["gender"],
+        openId: openId,
+        country: userInfo["country"]
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
-      method: 'POST',
-      success: function (res) {
-        console.log("执行授权操作，返回:res", res)
+      success:function(res){
         if(200 === res.statusCode){
           app.success()
-          wx.setStorageSync("openId", res.data["open_id"])
           wx.switchTab({
-            url: redirectPath
+            url: redirectPath,
           })
-        }else{
-          app.error()
         }
       },
-      fail: function (res) {
+      fail: function () {
         app.error()
-      },
-      complete: function () {
-        wx.hideToast()
       }
     })
   },
 
-  getUserInfo:function(res){
+
+  getUserBase:function(res){
     var that = this
     if(res.detail["errMsg"].search("fail") != -1){
       app.fail()
       return 
     }
-    var detail = res.detail
-    wx.setStorageSync("userInfo", detail["userInfo"])
-    wx.login({
-      success: function (res) {
-        console.log("登录成功后返回res:", res)
-        wx.setStorageSync("code", res.code)
-        var requestData = {
-          code: res.code, 
-          encryptedData: detail["encryptedData"],
-          iv: detail["iv"]
-          }
-        that.requestUser(requestData)
-      }
-    })
+    var userInfo = res.detail["userInfo"]
+    console.log(userInfo)
+    wx.setStorageSync("userInfo", userInfo)
+    var openId = wx.getStorageSync("openId")
+    if(!openId){
+      app.login()
+      openId = wx.getStorageSync("openId")
+    }
+    that.addUser(userInfo, openId)
   },
-   
 })

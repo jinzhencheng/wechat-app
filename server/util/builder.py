@@ -9,12 +9,21 @@ def build_url(code, app_id=GeneralConfig.WE_CHAT_APPID, secret=GeneralConfig.WE_
         .format(host=GeneralConfig.WE_CHAT_HOST, app_id=app_id, secret=secret, code=code, grant_type=GeneralConfig.WE_CHAT_GRANT_TYPE)
     return url
 
-def cut_date(dateStr):
+def cut_date(the_date):
+    dateStr = the_date.strftime("%Y-%m-%d %H:%M:%S")
     if not dateStr or '-' not in dateStr or ':' not in dateStr:
         return dateStr
-    start_index = dateStr.find('-') + 1
-    end_index = dateStr.rfind(':')
-    return dateStr[start_index: end_index]
+    days = the_date.day - datetime.now().day
+    if(days == 0):
+        prefix = "今天"
+    elif(days == 1):
+        prefix = "明天"
+    elif(days == 2):
+        prefix = "后天"
+    else:
+        prefix = dateStr[dateStr.find('-') + 1: dateStr.find(' ')]
+    suffix = dateStr[dateStr.find(' ') + 1: dateStr.rfind(':')]
+    return "%s %s" % (prefix, suffix)
 
 def build_date_tip(the_date):
     seconds = (datetime.now() - the_date).seconds

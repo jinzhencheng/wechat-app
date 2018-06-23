@@ -1,5 +1,5 @@
 <view class="container authorization-container">
   <image class="authorization-img" src="/images/page/authorization.png"></image>
   <text class="authorization-text">需要授权后才能使用哦~</text>
-  <button class="authorization-btn" hover-class="authorization-btn-hover"type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+  <button class="authorization-btn" hover-class="authorization-btn-hover"type="primary" open-type="getUserInfo" bindgetuserinfo="getUserBase">授权</button>
 </view>
