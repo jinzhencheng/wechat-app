@@ -7,8 +7,8 @@
   </text>
 </view>
 
-<view class="doc-view"> \n
-  <text class="text-title">司机须知</text>
+<view class="doc-view"> 
+  <text class="text-title">司机须知 \n</text>
   <text class="text-content">
     <br/> 1. 严格遵守交通法规，切勿疲劳驾驶。
     <br/> 2. 驾驶途中需保障乘车人的乘车安全。

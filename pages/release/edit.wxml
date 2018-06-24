@@ -1,25 +1,25 @@
 <view style="height:{{screenHeight}}px;background: #F5F5F5;">
   <view class="edit-tip-container">
-    <text class="edit-tip-text">本小程序初衷是为了方便北漂的临邑人拼车回家，请自觉遵守双方约定，真诚相待，健康出行。</text>
+    <text class="edit-tip-text">本小程序初衷是为了方便北漂的临邑人回家拼车，请自觉遵守双方约定，真诚相待，健康出行。</text>
   </view>
 
   <view class="form-view">
     <form bindsubmit="submit">
       <radio-group class="radio-group" bindchange="bindType" name="infoType">
-          <radio color="#d4237a" class="radio" value="车找人"></radio>
+          <radio color="#d4237a" class="radio" value="车找人" checked="{{info.checked}}"></radio>
           <label class="radio-label">车找人</label>
-          <radio color="#d4237a" class="radio" value="人找车"></radio>
+          <radio color="#d4237a" class="radio" value="人找车" checked="{{info.checked}}"></radio>
           <label class="radio-label">人找车</label>
       </radio-group>
       <view class="form-input-view">
         <image src="/images/page/start.png"></image>
         <label for="startPosition">出发地</label>
-        <input name="startPosition" type="text" id="startPosition" maxlength="10" placeholder="输入出发地"></input>
+        <input name="startPosition" type="text" id="startPosition" maxlength="10" placeholder="输入出发地" value="{{info.startPosition}}"></input>
       </view>
       <view class="form-input-view">
         <image src="/images/page/end.png"></image>
         <label for="endPosition">目的地</label>
-        <input name="endPosition" type="text" id="endPosition" maxlength="10" placeholder="输入目的地"></input>
+        <input name="endPosition" type="text" id="endPosition" maxlength="10" placeholder="输入目的地" value="{{info.endPosition}}"></input>
       </view>
       <view class="form-input-view">
         <image src="/images/page/go.png"></image>
@@ -36,9 +36,9 @@
         <view class="form-input-view">
             <image src="/images/page/phone.png"></image>
             <label for="phone">电话</label>
-            <input name="phone" type="number" id="phone" maxlength="11" placeholder="常用手机号"></input>
+            <input name="phone" type="number" id="phone" maxlength="11" placeholder="常用手机号" value="{{info.phone}}"></input>
         </view>
-        <textarea placeholder="{{remarkTip}}" name="remark"></textarea>
+        <textarea placeholder="{{remarkTip}}" name="remark" value="{{info.remark}}"></textarea>
       </view>
 
       <checkbox-group  bindchange="bindCheck"  class="other-checkbox">

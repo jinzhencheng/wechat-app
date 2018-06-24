@@ -2,6 +2,7 @@ var app = getApp()
 Page({
 
   data: {
+    info:{},
     selectedDate: "",
     selectedTime: "",
     remarkTip: "备注",
@@ -45,9 +46,10 @@ Page({
         startTime: `${that.data.selectedDate} ${that.data.selectedTime}`
       },
       success: function(res){
-        console.log("提交后返回：")
-        console.log(res)
         if(200 == res.statusCode && res.data["id"] > 0){
+          that.setData({
+            info:{}
+          })
           wx.switchTab({
             url: '/pages/index/index',
             success: function (e) {
@@ -60,7 +62,8 @@ Page({
         }
       },
       fail:function(res){
-        app.erro()
+        console.log(res)
+        app.error()
       }
     })
   },

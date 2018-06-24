@@ -33,6 +33,8 @@ def list_info(page_index=0, page_size=GeneralConfig.DEFAULT_PAGE_SIZE):
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened, details: %s" % e.message)
+    finally:
+        mysql_helper.close_driver()
 
 
 def add_info(info):
@@ -50,6 +52,8 @@ def add_info(info):
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened when insert a 'info' entity into DB, details: %s" % e.message)
+    finally:
+        mysql_helper.close_driver()
     return id
 
 
@@ -72,6 +76,8 @@ def get_info(id):
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
+    finally:
+        mysql_helper.close_driver()
     return info
 
 
@@ -90,6 +96,8 @@ def list_user_info(open_id, page_index=0,page_size=GeneralConfig.DEFAULT_PAGE_SI
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
+    finally:
+        mysql_helper.close_driver()
     return info_list
 
 
@@ -103,4 +111,6 @@ def delete_info(id):
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened when get a 'info' entity from DB, details: %s" % e.message)
+    finally:
+        mysql_helper.close_driver()
     return n

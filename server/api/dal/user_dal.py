@@ -23,6 +23,8 @@ def add_user(user):
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened when insert 'user' entity info DB, details: %s" % e.message)
+    finally:
+        mysql_helper.close_driver()
     return open_id
 
 def is_exists(open_id):
@@ -35,6 +37,8 @@ def is_exists(open_id):
     except Exception, e:
         session.rollback()
         the_logger.error("An exception happened when 'is_exists' function executed, details: %s" % e.message)
+    finally:
+        mysql_helper.close_driver()
     return result
 
 

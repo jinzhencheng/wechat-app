@@ -1,6 +1,0 @@
-<!--page_not_found.wxml-->
-<view class="container">
-  <view class="usermotto">
-    <text>页面丢失了</text>
-  </view>
-</view>

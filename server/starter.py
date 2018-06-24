@@ -6,4 +6,4 @@ from api import app
 from api import web
 
 if __name__ == '__main__':
-    app.run()
+    app.run("192.168.99.248")

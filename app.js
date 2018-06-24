@@ -106,5 +106,6 @@ App({
   globalData: {
     server: 'http://118.24.121.119:5000'
     //server: "http://localhost:5000"
+    //server: "http://192.168.99.248:5000"
   }
 })

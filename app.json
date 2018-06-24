@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/exception/page_not_found",
     "pages/release/edit",
     "pages/authorization/authorize",
     "pages/agreement/doc",

@@ -1,5 +1,5 @@
 
-.edit-tip-container{width:100%;height:60px;background:#FFFFF0;border-bottom: solid 1px #FFEC8B;}
+.edit-tip-container{width:100%;height:50px;background:#FFFFF0;border-bottom: solid 1px #FFEC8B;}
 .edit-tip-text{color:#FF7F24;font-size:14px;padding:5px 10px;text-align:left;}
 
 /* form view*/
