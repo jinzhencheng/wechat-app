@@ -22,7 +22,9 @@ class MySqlHelper(object):
         :return:None
         """
         if self.session is None:
-            engine = create_engine(self.mysql_uri, pool_size=MySqlConfig.DEFAULT_POOL_MAX_SIZE)
+            engine = create_engine(self.mysql_uri,
+                                   pool_size=MySqlConfig.DEFAULT_POOL_MAX_SIZE,
+                                   pool_recycle=MySqlConfig.DEFAULT_POOL_RECYCLE)
             db_session = sessionmaker(bind=engine)
             self.session = db_session()
     pass
