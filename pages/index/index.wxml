@@ -5,7 +5,7 @@
       <view class="page-body" bindtap="showDetail" id="{{item.id}}">
         <view class="card-head">
           <image class="head-img" src="{{item.avatar_url}}"></image>
-          <image class="gender-img" src="{{item.gender == '男' ? '/images/page/male.png': '/images/page/female.png'}}"></image>
+          <image class="gender-img" src="/images/page/{{item.gender}}.png"></image>
           <view class="head-position">
             <image class="position-img" src="/images/page/start.png"></image>
             <text class="position-text">{{item.start_position}} \n </text>

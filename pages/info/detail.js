@@ -1,6 +1,5 @@
 
 var app = getApp()
-var id = null
 Page({
 
   data: {
@@ -38,11 +37,13 @@ Page({
   },
 
   onLoad: function (options) {
-    id = options.id
+    var id = options.id
+    wx.setStorageSync("id", id)
   },
 
    onShow: function () {
     var that = this
+    var id = wx.getStorageSync("id")
     that.bindData(id)
   },
 
