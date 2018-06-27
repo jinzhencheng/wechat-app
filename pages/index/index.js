@@ -35,14 +35,13 @@ Page({
       },
       success: function(res){
         var { infoList } = that.data
-        if (!res.data || res.data.length <= 0 || (res.data.length < 10 && pageIndex != initPageIndex)){
-          hasData = false
-          return
-         }
-        if(0 === pageIndex){
+        if(initPageIndex == pageIndex){
           infoList = []
         }
-        res.data.forEach(function(item){
+        if (!res.data || res.data.length <= 0 || (res.data.length < 10 && pageIndex != initPageIndex)){
+          hasData = false
+        }
+        res.data.forEach(function (item) {
           infoList.push(item)
         })
         that.setData({

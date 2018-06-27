@@ -51,8 +51,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (options) {
-    var that = this
-    var path = `/pages/info/detail?id=${that.data.id}`
+    var id = wx.getStorageSync("id")
+    var path = `/pages/info/detail?id=${id}`
     app.share(path)
   }
 })

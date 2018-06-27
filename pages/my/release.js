@@ -24,12 +24,11 @@ Page({
       },
       success: function (res) {
         var { infoList } = that.data
+        if (initPageIndex === pageIndex) {
+          infoList = []
+        }
         if (!res.data || res.data.length <= 0 || (res.data.length < 10 && pageIndex != initPageIndex)) {
           hasData = false
-          return
-        }
-        if(0 === pageIndex){
-          infoList = []
         }
         res.data.forEach(function (item) {
           infoList.push(item)

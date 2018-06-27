@@ -19,7 +19,7 @@ def add_user():
     user.nickname = request.values.get("nickName")
     user.city = request.values.get("city")
     user.province = request.values.get("province")
-    user.gender = "male" if request.values.get("gender") else "female"
+    user.gender = "male" if int(request.values.get("gender")) else "female"
     user.open_id = request.values.get("openId")
     user.country = request.values.get("country")
     is_exists = user_dal.is_exists(user.open_id)

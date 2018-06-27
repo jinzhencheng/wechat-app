@@ -32,7 +32,7 @@ App({
 
   share: function(path){
     return{
-      title: "临邑人在北京 一个为临邑老乡拼车回家提供方便的平台",
+      title: "北漂的临邑人 一个为临邑老乡租车回家提供方便的平台",
       path: path,
       success: function (res) {
         wx.showToast({
@@ -104,6 +104,7 @@ App({
   },
 
   globalData: {
-    server: "http://118.24.121.119:5000"
+    //server: "http://localhost:5000"
+    server: "https://wxapi.hotapp.cn/proxy/?appkey=hotapp464241747&url=http://118.24.121.119:5000"
   }
 })
